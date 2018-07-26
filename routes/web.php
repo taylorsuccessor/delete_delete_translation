@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/word',function(){
+//    $word=new  \App\module\read_file\Word('project_file/word.docx');
+//    echo ($word->convertFileToHtml());
+    $word=new  \App\module\read_file\Ppt('project_file/ppt.pptx');
+    echo ($word->convertFileToHtml());
+});
