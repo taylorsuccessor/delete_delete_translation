@@ -1,0 +1,1 @@
+<?php return ['restaurant_rate'=>'0','restaurant_rate_active_index'=>'0','restaurant_rate_not_active_index'=>'1','_token'=>'ceQP0M7kk3z260jZZ24sMQOE8dknyHaFwKDtanZO','max_guest_order'=>'2',];
