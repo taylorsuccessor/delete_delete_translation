@@ -11,7 +11,7 @@
 |
 */
 
-
+use App\module\read_file\PrepareTextToBeSegment;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,8 +22,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/word',function(){
-//    $word=new  \App\module\read_file\Word('project_file/word.docx');
-//    echo ($word->convertFileToHtml());
-    $word=new  \App\module\read_file\Ppt('project_file/ppt.pptx');
-    echo ($word->convertFileToHtml());
+//    $word=new  \App\module\read_file\Docx('project_file/word.docx');
+//    echo ($word->getFileText());
+
+//    $pptx=new  \App\module\read_file\Pptx('project_file/ppt3.pptx');
+//    echo ($pptx->getFileText());
+
+//    $xlsx=new  \App\module\read_file\Xlsx('project_file/xlsx.xlsx');
+//    echo ($xlsx->getFileText());
+
+//    $txt=new  \App\module\read_file\Txt('project_file/txt.txt');
+//    echo ($txt->getFileText());
+
+    $filePath='project_file/html.html';
+
+   $getFileSegment=new \App\module\read_file\GetFileSegment($filePath);
+    dump($getFileSegment->getSegment());
+
 });

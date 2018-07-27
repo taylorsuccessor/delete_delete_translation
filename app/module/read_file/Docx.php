@@ -4,9 +4,9 @@ namespace App\module\read_file;
 
 
 
+use App\module\read_file\FileReaderInterface;
 
-
-class Word
+class Docx implements FileReaderInterface
 {
     public $fileUrl;
 
@@ -16,7 +16,7 @@ class Word
     }
 
 
-    public function loopOverElementsToGetText($elemenets,&$fileText){
+    private function loopOverElementsToGetText($elemenets,&$fileText){
 
         foreach ($elemenets as $elemenet){
 
@@ -50,10 +50,14 @@ class Word
     }
 
     public function getFileText(){
+        $fileText=$this->getFileXml();
+        XmlHelper::replaceTag($fileText,["p"=>"\n"]);
+        XmlHelper::removeTagExcept($fileText);
 
+        return $fileText;
     }
 
-   public function getFileXml(){
+   public function delete_getFileXml(){
 
         $xml_filename = "word/document.xml"; //content file name
         $zip_handle = new \ZipArchive;
@@ -61,30 +65,20 @@ class Word
         if(true === $zip_handle->open($this->fileUrl)){
             if(($xml_index = $zip_handle->locateName($xml_filename)) !== false){
                 $xml_datas = $zip_handle->getFromIndex($xml_index);
-                //file_put_contents($input_file.".xml",$xml_datas);
-//                $replace_newlines = preg_replace('/<w:p w[0-9-Za-z]+:[a-zA-Z0-9]+="[a-zA-z"0-9 :="]+">/',"\n\r",$xml_datas);
-//                $replace_tableRows = preg_replace('/<w:tr>/',"\n\r",$replace_newlines);
-//                $replace_tab = preg_replace('/<w:tab\/>/',"\t",$replace_tableRows);
-//                $replace_paragraphs = preg_replace('/<\/w:p>/',"\n\r",$replace_tab);
-//                $replace_other_Tags = strip_tags($replace_paragraphs);
-//                $output_text = $replace_other_Tags;
+
                 $output_text=$xml_datas;
 
-            }else{
-                $output_text .="";
             }
             $zip_handle->close();
-        }else{
-            $output_text .=" ";
         }
 
         return $output_text;
     }
 
-    public function convertFileToHtml(){
+    public function getFileXml(){
 
         $phpWord = \PhpOffice\PhpWord\IOFactory::load($this->fileUrl);
-        dump($phpWord);
+
         $htmlWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'HTML');
         $fullXml = $htmlWriter->getWriterPart('body')->write();
         return $fullXml;
