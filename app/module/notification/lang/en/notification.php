@@ -3,7 +3,7 @@ return [
 
 
     'notification'=>'Notification',
-'notificationCreate'=>'Create Notification ',
+'notificationCreate'=>'NotificationCreate Notification ',
     'addnotification'=>'Add Notification',
     'editnotification'=>'Edit Notification',
     'notificationInfo'=>'Notification Info',

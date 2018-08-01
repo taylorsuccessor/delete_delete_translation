@@ -4,7 +4,7 @@
   stroke: red;
   /* Control the thikness of your lines */
   stroke-width: 5px;
-  /* Create a dashed line with a pattern */
+  /* NotificationCreate a dashed line with a pattern */
   stroke-dasharray: 10px 20px;
 }
 

@@ -23,115 +23,116 @@ use App\module\car\admin\repository\CarContract as rCar;
 
 class Car extends Controller
 {
-private $rCar;
+    private $rCar;
 
-public function __construct(rCar $rCar)
-{
-$this->rCar=$rCar;
-}
-/**
-* Display a listing of the resource.
-*
-* @return void
-*/
-public function index(Request $request)
-{
+    public function __construct(rCar $rCar)
+    {
+        $this->rCar=$rCar;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
+    public function index(Request $request)
+    {
 
-$statistic=null;
-$oResults=$this->rCar->getByFilter($request,$statistic);
+        $statistic=null;
+        $oResults=$this->rCar->getByFilter($request,$statistic);
 
-return view('admin.car::index', compact('oResults','request','statistic'));
-}
+        return view('admin.car::index', compact('oResults','request','statistic'));
+    }
 
-/**
-* Show the form for creating a new resource.
-*
-* @return view
-*/
-public function create(Request $request)
-{
-
-
-return view('admin.car::create',compact('request'));
-}
-
-/**
-* Store a newly created resource in storage.
-*
-* @return redirect
-*/
-public function store(createRequest $request)
-{
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return view
+     */
+    public function create(Request $request)
+    {
 
 
-$oResults=$this->rCar->create($request->all());
+        return view('admin.car::create',compact('request'));
+    }
 
-return redirect('admin/car');
-}
-
-/**
-* Display the specified resource.
-*
-* @param  int  $id
-*
-* @return view
-*/
-public function show($id,Request $request)
-{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return redirect
+     */
+    public function store(createRequest $request)
+    {
 
 
-$car=$this->rCar->show($id);
-$request->merge(['car_id'=>$id,'page_name'=>'page']);
+        $oResults=$this->rCar->create($request->all());
+
+        return redirect('admin/car');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return view
+     */
+    public function show($id,Request $request)
+    {
+
+
+        $car=$this->rCar->show($id);
+        $request->merge(['car_id'=>$id,'page_name'=>'page']);
 
 
 
-return view('admin.car::show', compact('car','request'));
-}
+        return view('admin.car::show', compact('car','request'));
+    }
 
-/**
-* Show the form for editing the specified resource.
-*
-* @param  int  $id
-*
-* @return view
-*/
-public function edit($id)
-{
-
-
-$car=$this->rCar->show($id);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return view
+     */
+    public function edit($id)
+    {
 
 
-return view('admin.car::edit', compact('car'));
-}
+        $car=$this->rCar->show($id);
 
-/**
-* Update the specified resource in storage.
-*
-* @param  int  $id
-*
-* @return redirect
-*/
-public function update($id, editRequest $request)
-{
 
-$result=$this->rCar->update($id,$request);
+        return view('admin.car::edit', compact('car'));
+    }
 
-return redirect(route('admin.car.index'));
-}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     *
+     * @return redirect
+     */
+    public function update($id, editRequest $request)
+    {
 
-/**
-* Remove the specified resource from storage.
-*
-* @param  int  $id
-*
-* @return redirect
-*/
-public function destroy($id)
-{
-$car=$this->rCar->destroy($id);
-return redirect(route('admin.car.index'));
-}
+        $result=$this->rCar->update($id,$request);
+
+
+        return redirect(route('admin.car.index'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return redirect
+     */
+    public function destroy($id)
+    {
+        $car=$this->rCar->destroy($id);
+        return redirect(route('admin.car.index'));
+    }
 
 
 }

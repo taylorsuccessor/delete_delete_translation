@@ -50,7 +50,7 @@
   var $chartistGuyElement = $('#chartist-guy');
   if($chartistGuyElement.length > 0) {
 
-    // Create new snap object from SVG
+    // NotificationCreate new snap object from SVG
     var chartistGuySnap = Snap($chartistGuyElement.get(0));
     // Load Chartist guy SVG
     Snap.load($chartistGuyElement.data('svgSrc'), function (fragment) {

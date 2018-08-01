@@ -1,10 +1,11 @@
 <?php
 
-namespace App\module\read_file;
+namespace App\module\segment_helper\read_file;
 
 
+use App\module\segment_helper\XmlHelper;
 
-use App\module\read_file\FileReaderInterface;
+use App\module\segment_helper\read_file\FileReaderInterface;
 
 class Docx implements FileReaderInterface
 {
@@ -85,4 +86,15 @@ class Docx implements FileReaderInterface
         //$htmlWriter->save(storage_path('xxx.html'));
     }
 
+    public function old_getFileXml(){
+        $zip = new \ZipArchive;
+        $text='';
+        $zip->open($this->fileUrl);
+        if (($index = $zip->locateName("word/document.xml")) !== false) {
+            $text = $zip->getFromIndex($index);
+
+        }
+        $zip->close();
+        return  $text;
+    }
 }

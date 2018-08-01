@@ -29,7 +29,7 @@ class ResetPasswordController extends Controller
     protected $redirectTo = 'admin/login';
 
     /**
-     * Create a new controller instance.
+     * NotificationCreate a new controller instance.
      *
      * @return void
      */

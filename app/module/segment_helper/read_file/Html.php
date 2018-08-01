@@ -1,10 +1,10 @@
 <?php
 
-namespace App\module\read_file;
+namespace App\module\segment_helper\read_file;
 
+use App\module\segment_helper\XmlHelper;
 
-
-use App\module\read_file\FileReaderInterface;
+use App\module\segment_helper\read_file\FileReaderInterface;
 
 class Html implements FileReaderInterface
 {

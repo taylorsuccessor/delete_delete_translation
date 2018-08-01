@@ -18,7 +18,7 @@ return [
 
     'role'=>'Role',
     'roleList'=>'Role List',
-    'roleCreate'=>'Create Role ',
+    'roleCreate'=>'NotificationCreate Role ',
     'roleMenuBottomHeader'=>'RoleMenu Bottom Header',
     'roleMenuBottomDescription'=>'Role Menu Bottom Description',
 

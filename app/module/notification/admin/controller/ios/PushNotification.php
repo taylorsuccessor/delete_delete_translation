@@ -20,7 +20,7 @@ class PushNotification {
 //$message='2dad390b1e231370feb8e9d906cb92ff1217a488450e6be96c14f85f57279865';
 
 
-        // Create the payload body
+        // NotificationCreate the payload body
         $body['aps'] = array(
             'alert' => array('title'=>$title,'body' => $message, 'Test' => 'Show'),
             'sound' => 'default'

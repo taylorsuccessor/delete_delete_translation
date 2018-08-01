@@ -8,6 +8,8 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <meta name="_token" content="{{ csrf_token() }}" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - Laravel</title>
     <!-- Bootstrap Core CSS -->
     {!! Html::style('/assets/admin/bootstrap/dist/css/bootstrap.min.css') !!}
@@ -274,6 +276,38 @@ $('#togglebtn').hide();
     */
 
 </script>
+
+
+        <!-- receive notifications -->
+        <script src="{{ asset('js/echo.js') }}"></script>
+
+        <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+        <script>
+            Pusher.logToConsole = true;
+
+            window.Echo = new Echo({
+                broadcaster: 'pusher',
+                key: '14ecf6b9699bbc09a4f2',
+                cluster: 'ap2',
+                encrypted: true,
+                logToConsole: true
+            });
+
+            Echo.private('App.User.{{\Auth::user()->id}}')
+                .listen('.App\\module\\car\\event\\Create', (e) => {
+                console.log(e.model.email);
+
+            });
+
+
+            Echo.private('admin.channel')
+                .listen('.App\\module\\car\\event\\Create', (e) => {
+                alert(e.model.email);
+
+            });
+        </script>
+        <!-- receive notifications -->
 @show
 
 <style type="text/css">

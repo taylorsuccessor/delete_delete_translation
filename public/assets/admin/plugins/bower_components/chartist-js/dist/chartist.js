@@ -308,7 +308,7 @@ var Chartist = {
   };
 
   /**
-   * Create or reinitialize the SVG element for the chart
+   * NotificationCreate or reinitialize the SVG element for the chart
    *
    * @memberof Chartist.Core
    * @param {Node} container The containing DOM Node object that will be used to plant the SVG element
@@ -331,7 +331,7 @@ var Chartist = {
       container.removeChild(svg);
     });
 
-    // Create svg object with width and height or use 100% as default
+    // NotificationCreate svg object with width and height or use 100% as default
     svg = new Chartist.Svg('svg').attr({
       width: width,
       height: height
@@ -408,7 +408,7 @@ var Chartist = {
    * @memberof Chartist.Core
    * @param {Object} data The series object that contains the data to be visualized in the chart
    * @param {Boolean} reverse If true the whole data is reversed by the getDataArray call. This will modify the data object passed as first parameter. The labels as well as the series order is reversed. The whole series data arrays are reversed too.
-   * @param {Boolean} multi Create a multi dimensional array from a series data array where a value object with `x` and `y` values will be created.
+   * @param {Boolean} multi NotificationCreate a multi dimensional array from a series data array where a value object with `x` and `y` values will be created.
    * @return {Array} A plain array that contains the data to be visualized in the chart
    */
   Chartist.getDataArray = function (data, reverse, multi) {
@@ -1664,7 +1664,7 @@ var Chartist = {
       data: this.data
     });
 
-    // Create the first chart
+    // NotificationCreate the first chart
     this.createChart(this.optionsProvider.getCurrentOptions());
 
     // As chart is initialized from the event loop now we can reset our timeout reference
@@ -1815,7 +1815,7 @@ var Chartist = {
   }
 
   /**
-   * Create a new SVG element whose wrapper object will be selected for further operations. This way you can also create nested groups easily.
+   * NotificationCreate a new SVG element whose wrapper object will be selected for further operations. This way you can also create nested groups easily.
    *
    * @memberof Chartist.Svg
    * @param {String} name The name of the SVG element that should be created as child element of the currently selected element wrapper
@@ -3081,9 +3081,9 @@ var Chartist = {
       normalized: Chartist.getDataArray(this.data, options.reverseData, true)
     };
 
-    // Create new svg object
+    // NotificationCreate new svg object
     this.svg = Chartist.createSvg(this.container, options.width, options.height, options.classNames.chart);
-    // Create groups for labels, grid and series
+    // NotificationCreate groups for labels, grid and series
     var gridGroup = this.svg.elem('g').addClass(options.classNames.gridGroup);
     var seriesGroup = this.svg.elem('g');
     var labelGroup = this.svg.elem('g').addClass(options.classNames.labelGroup);
@@ -3287,7 +3287,7 @@ var Chartist = {
    * @return {Object} An object which exposes the API for the created chart
    *
    * @example
-   * // Create a simple line chart
+   * // NotificationCreate a simple line chart
    * var data = {
    *   // A labels array that can contain any sort of values
    *   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
@@ -3321,7 +3321,7 @@ var Chartist = {
    * });
    *
    * @example
-   * // Create a line chart with responsive options
+   * // NotificationCreate a line chart with responsive options
    *
    * var data = {
    *   // A labels array that can contain any sort of values
@@ -3492,7 +3492,7 @@ var Chartist = {
 
     var highLow;
 
-    // Create new svg element
+    // NotificationCreate new svg element
     this.svg = Chartist.createSvg(
       this.container,
       options.width,
@@ -3718,7 +3718,7 @@ var Chartist = {
         positions.y1 = Math.min(Math.max(positions.y1, chartRect.y2), chartRect.y1);
         positions.y2 = Math.min(Math.max(positions.y2, chartRect.y2), chartRect.y1);
 
-        // Create bar element
+        // NotificationCreate bar element
         bar = seriesElement.elem('line', positions, options.classNames.bar).attr({
           'ct:value': [value.x, value.y].filter(Chartist.isNum).join(','),
           'ct:meta': Chartist.getMetaData(series, valueIndex)
@@ -3761,7 +3761,7 @@ var Chartist = {
    * @return {Object} An object which exposes the API for the created chart
    *
    * @example
-   * // Create a simple bar chart
+   * // NotificationCreate a simple bar chart
    * var data = {
    *   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
    *   series: [
@@ -3896,7 +3896,7 @@ var Chartist = {
       startAngle = options.startAngle,
       dataArray = Chartist.getDataArray(this.data, options.reverseData);
 
-    // Create SVG.js draw
+    // NotificationCreate SVG.js draw
     this.svg = Chartist.createSvg(this.container, options.width, options.height,options.donut ? options.classNames.chartDonut : options.classNames.chartPie);
     // Calculate charting rect
     chartRect = Chartist.createChartRect(this.svg, options, defaultOptions.padding);
@@ -3982,7 +3982,7 @@ var Chartist = {
       var start = Chartist.polarToCartesian(center.x, center.y, radius, overlappigStartAngle),
         end = Chartist.polarToCartesian(center.x, center.y, radius, endAngle);
 
-      // Create a new path element for the pie chart. If this isn't a donut chart we should close the path for a correct stroke
+      // NotificationCreate a new path element for the pie chart. If this isn't a donut chart we should close the path for a correct stroke
       var path = new Chartist.Svg.Path(!options.donut)
         .move(end.x, end.y)
         .arc(radius, radius, 0, endAngle - startAngle > 180, 0, start.x, start.y);
@@ -3992,7 +3992,7 @@ var Chartist = {
         path.line(center.x, center.y);
       }
 
-      // Create the SVG path
+      // NotificationCreate the SVG path
       // If this is a donut chart we add the donut class, otherwise just a regular slice
       var pathElement = seriesGroups[i].elem('path', {
         d: path.stringify()

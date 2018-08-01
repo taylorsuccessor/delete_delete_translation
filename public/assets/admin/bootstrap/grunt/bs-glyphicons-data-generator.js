@@ -28,7 +28,7 @@ module.exports = function generateGlyphiconsData(grunt) {
     }
   }
 
-  // Create the `_data` directory if it doesn't already exist
+  // NotificationCreate the `_data` directory if it doesn't already exist
   if (!fs.existsSync('docs/_data')) {
     fs.mkdirSync('docs/_data');
   }

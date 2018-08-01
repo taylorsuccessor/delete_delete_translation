@@ -85,7 +85,7 @@
   }
 
   /**
-   * Create a new SVG element whose wrapper object will be selected for further operations. This way you can also create nested groups easily.
+   * NotificationCreate a new SVG element whose wrapper object will be selected for further operations. This way you can also create nested groups easily.
    *
    * @memberof Chartist.Svg
    * @param {String} name The name of the SVG element that should be created as child element of the currently selected element wrapper

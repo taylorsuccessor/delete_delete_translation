@@ -1,6 +1,6 @@
 <?php
 return [
-    'notification_name'=>['register_welcome'=>'Register Success','reset_password'=>'Request Rest Password','success_reset_password'=>'Password rest successfully','register_verify'=>'Register Verify'],
+    'notification_name'=>['edit_car'=>'Edit Car','register_welcome'=>'Register Success','reset_password'=>'Request Rest Password','success_reset_password'=>'Password rest successfully','register_verify'=>'Register Verify'],
 
     'notification_type'=>['email'=>'Email','sms'=>'SMS Message','notification'=>'mobile notification'],
     'notification_status'=>['active','not active'],

@@ -32,7 +32,7 @@ define(['summernote/core/range'], function (range) {
      * undo
      */
     this.undo = function () {
-      // Create snap shot if not yet recorded
+      // NotificationCreate snap shot if not yet recorded
       if ($editable.html() !== stack[stackOffset].contents) {
         this.recordUndo();
       }
@@ -64,11 +64,11 @@ define(['summernote/core/range'], function (range) {
         stack = stack.slice(0, stackOffset);
       }
 
-      // Create new snapshot and push it to the end
+      // NotificationCreate new snapshot and push it to the end
       stack.push(makeSnapshot());
     };
 
-    // Create first undo stack
+    // NotificationCreate first undo stack
     this.recordUndo();
   };
 

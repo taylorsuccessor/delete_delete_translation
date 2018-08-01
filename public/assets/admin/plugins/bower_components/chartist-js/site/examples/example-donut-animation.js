@@ -16,7 +16,7 @@ chart.on('draw', function(data) {
       'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
     });
 
-    // Create animation definition while also assigning an ID to the animation for later sync usage
+    // NotificationCreate animation definition while also assigning an ID to the animation for later sync usage
     var animationDefinition = {
       'stroke-dashoffset': {
         id: 'anim' + data.index,

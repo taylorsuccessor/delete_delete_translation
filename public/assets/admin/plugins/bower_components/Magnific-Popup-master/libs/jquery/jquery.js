@@ -960,7 +960,7 @@ function createOptions( options ) {
 }
 
 /*
- * Create a callback list using the following parameters:
+ * NotificationCreate a callback list using the following parameters:
  *
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
@@ -3113,7 +3113,7 @@ jQuery.event = {
 			return event;
 		}
 
-		// Create a writable copy of the event object and normalize some properties
+		// NotificationCreate a writable copy of the event object and normalize some properties
 		var i, prop,
 			originalEvent = event,
 			fixHook = jQuery.event.fixHooks[ event.type ] || {},
@@ -3317,7 +3317,7 @@ jQuery.Event = function( src, props ) {
 		jQuery.extend( this, props );
 	}
 
-	// Create a timestamp if incoming event doesn't have one
+	// NotificationCreate a timestamp if incoming event doesn't have one
 	this.timeStamp = src && src.timeStamp || jQuery.now();
 
 	// Mark it as fixed
@@ -3371,7 +3371,7 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Create mouseenter/leave events using mouseover/out and event-time checks
+// NotificationCreate mouseenter/leave events using mouseover/out and event-time checks
 jQuery.each({
 	mouseenter: "mouseover",
 	mouseleave: "mouseout"
@@ -3504,7 +3504,7 @@ if ( !jQuery.support.changeBubbles ) {
 	};
 }
 
-// Create "bubbling" focus and blur events
+// NotificationCreate "bubbling" focus and blur events
 if ( !jQuery.support.focusinBubbles ) {
 	jQuery.each({ focus: "focusin", blur: "focusout" }, function( orig, fix ) {
 
@@ -3829,7 +3829,7 @@ function isNative( fn ) {
 }
 
 /**
- * Create key-value caches of limited size
+ * NotificationCreate key-value caches of limited size
  * @returns {Function(string, Object)} Returns the Object data after storing it on itself with
  *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
@@ -7693,7 +7693,7 @@ jQuery.extend({
 			fireGlobals,
 			// Loop variable
 			i,
-			// Create the final options object
+			// NotificationCreate the final options object
 			s = jQuery.ajaxSetup( {}, options ),
 			// Callbacks context
 			callbackContext = s.context || s,
@@ -8137,7 +8137,7 @@ function ajaxConvert( s, response ) {
 		response = s.dataFilter( response, s.dataType );
 	}
 
-	// Create converters map with lowercased keys
+	// NotificationCreate converters map with lowercased keys
 	if ( dataTypes[ 1 ] ) {
 		for ( conv in s.converters ) {
 			converters[ conv.toLowerCase() ] = s.converters[ conv ];
@@ -8397,7 +8397,7 @@ function createActiveXHR() {
 	} catch( e ) {}
 }
 
-// Create the request object
+// NotificationCreate the request object
 // (This is still attached to ajaxSettings for backward compatibility)
 jQuery.ajaxSettings.xhr = window.ActiveXObject ?
 	/* Microsoft failed to properly
@@ -8417,7 +8417,7 @@ xhrSupported = jQuery.ajaxSettings.xhr();
 jQuery.support.cors = !!xhrSupported && ( "withCredentials" in xhrSupported );
 xhrSupported = jQuery.support.ajax = !!xhrSupported;
 
-// Create transport if the browser can provide an xhr
+// NotificationCreate transport if the browser can provide an xhr
 if ( xhrSupported ) {
 
 	jQuery.ajaxTransport(function( s ) {
@@ -8569,7 +8569,7 @@ if ( xhrSupported ) {
 					} else {
 						handle = ++xhrId;
 						if ( xhrOnUnloadAbort ) {
-							// Create the active xhrs callbacks list if needed
+							// NotificationCreate the active xhrs callbacks list if needed
 							// and attach the unload handler
 							if ( !xhrCallbacks ) {
 								xhrCallbacks = {};
@@ -9454,7 +9454,7 @@ jQuery.fn.extend({
 });
 
 
-// Create scrollLeft and scrollTop methods
+// NotificationCreate scrollLeft and scrollTop methods
 jQuery.each( {scrollLeft: "pageXOffset", scrollTop: "pageYOffset"}, function( method, prop ) {
 	var top = /Y/.test( prop );
 
@@ -9488,7 +9488,7 @@ function getWindow( elem ) {
 			elem.defaultView || elem.parentWindow :
 			false;
 }
-// Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
+// NotificationCreate innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name }, function( defaultExtra, funcName ) {
 		// margin is only for outerHeight, outerWidth

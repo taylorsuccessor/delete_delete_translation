@@ -3,7 +3,7 @@ return [
 
 
 'edit_config'=>'Edit Config',
-'edit_configCreate'=>'Create Edit Config ',
+'edit_configCreate'=>'NotificationCreate Edit Config ',
     'addedit_config'=>'Add Edit Config',
     'editedit_config'=>'Edit Edit Config',
     'edit_configInfo'=>'Edit Config Info',

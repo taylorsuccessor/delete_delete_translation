@@ -1,0 +1,1 @@
+this is test to {{   $user['email'] }}  to test event {{   $oldModel['name'] }}  ___{{$newModel['name'] }}

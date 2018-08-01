@@ -208,6 +208,9 @@ return [
 
         App\module\vue\VueServiceProvider::class,
 
+
+        App\module\translation\TranslationServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
     ],
 
     /*

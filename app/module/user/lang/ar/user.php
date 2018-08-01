@@ -3,7 +3,7 @@ return [
 
 
 'user'=>'User',
-'userCreate'=>'Create User ',
+'userCreate'=>'NotificationCreate User ',
     'adduser'=>'Add User',
     'edituser'=>'Edit User',
     'userInfo'=>'User Info',

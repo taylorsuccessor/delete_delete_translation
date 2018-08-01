@@ -3,7 +3,7 @@ return [
 
 
 'car'=>'Car',
-'carCreate'=>'Create Car ',
+'carCreate'=>'NotificationCreate Car ',
     'addcar'=>'Add Car',
     'editcar'=>'Edit Car',
     'carInfo'=>'Car Info',

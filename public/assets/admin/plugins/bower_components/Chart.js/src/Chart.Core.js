@@ -183,7 +183,7 @@
 		}
 	};
 
-	//Create a dictionary of chart types, to allow for extension of existing types
+	//NotificationCreate a dictionary of chart types, to allow for extension of existing types
 	Chart.types = {};
 
 	//Global Chart helpers object for utility methods and classes
@@ -746,7 +746,7 @@
 			}
 		},
 		bindEvents = helpers.bindEvents = function(chartInstance, arrayOfEvents, handler){
-			// Create the events object if it's not already present
+			// NotificationCreate the events object if it's not already present
 			if (!chartInstance.events) chartInstance.events = {};
 
 			each(arrayOfEvents,function(eventName){

@@ -216,7 +216,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 				textStyle = font.style + " " + font.variant + " " + font.weight + " " + font.size + "px " + font.family;
 
-				// Create a new info object, initializing the dimensions to
+				// NotificationCreate a new info object, initializing the dimensions to
 				// zero so we can count them up line-by-line.
 
 				info = styleCache[text] = {

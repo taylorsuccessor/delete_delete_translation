@@ -240,11 +240,11 @@ Licensed under the MIT license.
 
 		var layer = this.text[classes];
 
-		// Create the text layer if it doesn't exist
+		// NotificationCreate the text layer if it doesn't exist
 
 		if (layer == null) {
 
-			// Create the text layer container, if it doesn't exist
+			// NotificationCreate the text layer container, if it doesn't exist
 
 			if (this.textContainer == null) {
 				this.textContainer = $("<div class='flot-text'></div>")

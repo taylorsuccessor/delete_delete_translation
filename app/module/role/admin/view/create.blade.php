@@ -231,7 +231,7 @@
 
         <div class="form-group">
         <div class="col-sm-offset-9 col-sm-3">
-            {!! Form::submit('Create', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::submit('NotificationCreate', ['class' => 'btn btn-primary form-control']) !!}
         </div>
     </div>
 

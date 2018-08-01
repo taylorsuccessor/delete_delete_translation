@@ -391,7 +391,7 @@
         this.unbuild();
       }
 
-      // Create cropper elements
+      // NotificationCreate cropper elements
       this.$container = $this.parent();
       this.$cropper = $cropper = $(Cropper.TEMPLATE);
       this.$canvas = $cropper.find('.cropper-canvas').append($clone);
@@ -1598,7 +1598,7 @@
           renderable = false;
           break;
 
-        // Create crop box
+        // NotificationCreate crop box
         case ACTION_CROP:
           if (range.x && range.y) {
             offset = this.$cropper.offset();

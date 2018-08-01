@@ -3,7 +3,7 @@ return [
 
 
 'vue'=>'Vue',
-'vueCreate'=>'Create Vue ',
+'vueCreate'=>'NotificationCreate Vue ',
     'addvue'=>'Add Vue',
     'editvue'=>'Edit Vue',
     'vueInfo'=>'Vue Info',

@@ -18,7 +18,7 @@ return [
 
     'user'=>'User',
     'userList'=>'User List',
-    'userCreate'=>'Create User ',
+    'userCreate'=>'NotificationCreate User ',
     'userMenuBottomHeader'=>'UserMenu Bottom Header',
     'userMenuBottomDescription'=>'User Menu Bottom Description',
 

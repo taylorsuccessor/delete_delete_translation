@@ -18,7 +18,7 @@ return [
 
     'notification'=>'Notification',
     'notificationList'=>'Notification List',
-    'notificationCreate'=>'Create Notification ',
+    'notificationCreate'=>'NotificationCreate Notification ',
     'notificationMenuBottomHeader'=>'NotificationMenu Bottom Header',
     'notificationMenuBottomDescription'=>'Notification Menu Bottom Description',
 

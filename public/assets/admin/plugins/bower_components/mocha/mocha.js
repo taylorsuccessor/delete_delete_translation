@@ -5031,7 +5031,7 @@ var EventEmitter = require('browser/events').EventEmitter
 exports = module.exports = Suite;
 
 /**
- * Create a new `Suite` with the given `title`
+ * NotificationCreate a new `Suite` with the given `title`
  * and parent `Suite`. When a suite with the
  * same title is already present, that suite
  * is returned to provide nicer reporter

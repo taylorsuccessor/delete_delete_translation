@@ -158,7 +158,7 @@ jQuery.fn.extend({
 	}
 });
 
-// Create scrollLeft and scrollTop methods
+// NotificationCreate scrollLeft and scrollTop methods
 jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( method, prop ) {
 	var top = "pageYOffset" === prop;
 

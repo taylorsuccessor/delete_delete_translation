@@ -618,7 +618,7 @@ define([
 
       var anchors = [];
       if (isTextChanged) {
-        // Create a new link when text changed.
+        // NotificationCreate a new link when text changed.
         var anchor = rng.insertNode($('<A>' + linkText + '</A>')[0]);
         anchors.push(anchor);
       } else {

@@ -129,7 +129,7 @@ sections:
                 path: src/styles/settings/_chartist-settings.scss
                 lang: scss
 
-  - title: Create your first chart
+  - title: NotificationCreate your first chart
     level: 3
     items:
       - type: text

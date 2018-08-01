@@ -1,5 +1,5 @@
 <?php
-namespace App\module\read_file;
+namespace App\module\segment_helper;
 
 
 

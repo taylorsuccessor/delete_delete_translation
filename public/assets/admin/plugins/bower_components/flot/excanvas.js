@@ -116,7 +116,7 @@ if (!document.createElement('canvas').getContext) {
   var G_vmlCanvasManager_ = {
     init: function(opt_doc) {
       var doc = opt_doc || document;
-      // Create a dummy element so that IE will allow canvas elements to be
+      // NotificationCreate a dummy element so that IE will allow canvas elements to be
       // recognized.
       doc.createElement('canvas');
       doc.attachEvent('onreadystatechange', bind(this.init_, this, doc));

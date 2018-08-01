@@ -15,7 +15,7 @@ function evalChartistCode(code, chartElement) {
   var $chartElement = $(chartElement).empty();
 
   try {
-    // Create function from the modified code and execute it
+    // NotificationCreate function from the modified code and execute it
     return (new Function(['chartElement', '$chart'], modified)(chartElement, $chartElement)); // jshint ignore:line
   } catch(err) {
     // Maybe show error in the future

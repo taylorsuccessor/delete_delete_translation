@@ -2207,7 +2207,7 @@ rangy.createModule("DomUtil", function(api, module) {
                 return this.nativeRange.toString();
             };
 
-            // Create test range and node for feature detection
+            // NotificationCreate test range and node for feature detection
 
             var testTextNode = document.createTextNode("test");
             dom.getBody(document).appendChild(testTextNode);
@@ -2667,7 +2667,7 @@ rangy.createModule("DomUtil", function(api, module) {
     }
 
     function updateFromTextRange(sel, range) {
-        // Create a Range from the selected TextRange
+        // NotificationCreate a Range from the selected TextRange
         var wrappedRange = new WrappedRange(range);
         sel._ranges = [wrappedRange];
 
@@ -2706,7 +2706,7 @@ rangy.createModule("DomUtil", function(api, module) {
         var controlRange = sel.docSelection.createRange();
         var rangeElement = getSingleElementFromRange(range);
 
-        // Create a new ControlRange containing all the elements in the selected ControlRange plus the element
+        // NotificationCreate a new ControlRange containing all the elements in the selected ControlRange plus the element
         // contained by the supplied range
         var doc = dom.getDocument(controlRange.item(0));
         var newControlRange = dom.getBody(doc).createControlRange();
@@ -3044,7 +3044,7 @@ rangy.createModule("DomUtil", function(api, module) {
                 var controlRange = this.docSelection.createRange();
                 var rangeElement = getSingleElementFromRange(range);
 
-                // Create a new ControlRange containing all the elements in the selected ControlRange minus the
+                // NotificationCreate a new ControlRange containing all the elements in the selected ControlRange minus the
                 // element contained by the supplied range
                 var doc = dom.getDocument(controlRange.item(0));
                 var newControlRange = dom.getBody(doc).createControlRange();
@@ -5452,7 +5452,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
             stylesheets:  this.config.stylesheets
           });
 
-      // Create the basic dom tree including proper DOCTYPE and charset
+      // NotificationCreate the basic dom tree including proper DOCTYPE and charset
       iframeDocument.open("text/html", "replace");
       iframeDocument.write(sandboxHtml);
       iframeDocument.close();
@@ -6965,7 +6965,7 @@ wysihtml5.Commands = Base.extend(
           _removeFormat(composer, anchors);
         });
       } else {
-        // Create links
+        // NotificationCreate links
         value = typeof(value) === "object" ? value : { href: value };
         _format(composer, value);
       }
@@ -7527,7 +7527,7 @@ wysihtml5.Commands = Base.extend(
           wysihtml5.dom.renameElement(otherList, "ol");
         });
       } else {
-        // Create list
+        // NotificationCreate list
         composer.commands.exec("formatBlock", "div", tempClassName);
         tempElement = doc.querySelector("." + tempClassName);
         isEmpty = tempElement.innerHTML === "" || tempElement.innerHTML === wysihtml5.INVISIBLE_SPACE;
@@ -7584,7 +7584,7 @@ wysihtml5.Commands = Base.extend(
           wysihtml5.dom.renameElement(otherList, "ul");
         });
       } else {
-        // Create list
+        // NotificationCreate list
         composer.commands.exec("formatBlock", "div", tempClassName);
         tempElement = doc.querySelector("." + tempClassName);
         isEmpty = tempElement.innerHTML === "" || tempElement.innerHTML === wysihtml5.INVISIBLE_SPACE;
@@ -8038,7 +8038,7 @@ wysihtml5.views.View = Base.extend(
       });
       this.iframe  = this.sandbox.getIframe();
 
-      // Create hidden field which tells the server after submit, that the user used an wysiwyg editor
+      // NotificationCreate hidden field which tells the server after submit, that the user used an wysiwyg editor
       var hiddenField = document.createElement("input");
       hiddenField.type   = "hidden";
       hiddenField.name   = "_wysihtml5_mode";

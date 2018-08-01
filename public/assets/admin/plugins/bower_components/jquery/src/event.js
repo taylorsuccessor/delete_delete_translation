@@ -502,7 +502,7 @@ jQuery.event = {
 			return event;
 		}
 
-		// Create a writable copy of the event object and normalize some properties
+		// NotificationCreate a writable copy of the event object and normalize some properties
 		var i, prop, copy,
 			type = event.type,
 			originalEvent = event,
@@ -650,7 +650,7 @@ jQuery.Event = function( src, props ) {
 		jQuery.extend( this, props );
 	}
 
-	// Create a timestamp if incoming event doesn't have one
+	// NotificationCreate a timestamp if incoming event doesn't have one
 	this.timeStamp = src && src.timeStamp || jQuery.now();
 
 	// Mark it as fixed
@@ -695,7 +695,7 @@ jQuery.Event.prototype = {
 	}
 };
 
-// Create mouseenter/leave events using mouseover/out and event-time checks
+// NotificationCreate mouseenter/leave events using mouseover/out and event-time checks
 // Support: Chrome 15+
 jQuery.each({
 	mouseenter: "mouseover",
@@ -726,7 +726,7 @@ jQuery.each({
 });
 
 // Support: Firefox, Chrome, Safari
-// Create "bubbling" focus and blur events
+// NotificationCreate "bubbling" focus and blur events
 if ( !support.focusinBubbles ) {
 	jQuery.each({ focus: "focusin", blur: "focusout" }, function( orig, fix ) {
 

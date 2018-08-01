@@ -3,7 +3,7 @@ return [
 
 
 'authentication'=>'Authentication',
-'authenticationCreate'=>'Create Authentication ',
+'authenticationCreate'=>'NotificationCreate Authentication ',
     'addauthentication'=>'Add Authentication',
     'editauthentication'=>'Edit Authentication',
     'authenticationInfo'=>'Authentication Info',

@@ -18,7 +18,7 @@ return [
 
     'layout'=>'Layout',
     'layoutList'=>'Layout List',
-    'layoutCreate'=>'Create Layout ',
+    'layoutCreate'=>'NotificationCreate Layout ',
     'layoutMenuBottomHeader'=>'LayoutMenu Bottom Header',
     'layoutMenuBottomDescription'=>'Layout Menu Bottom Description',
 

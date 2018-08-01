@@ -11,7 +11,7 @@
 |
 */
 
-use App\module\read_file\PrepareTextToBeSegment;
+use App\module\segment_helper\PrepareTextToBeSegment;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,21 +22,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/word',function(){
-//    $word=new  \App\module\read_file\Docx('project_file/word.docx');
-//    echo ($word->getFileText());
 
-//    $pptx=new  \App\module\read_file\Pptx('project_file/ppt3.pptx');
-//    echo ($pptx->getFileText());
 
-//    $xlsx=new  \App\module\read_file\Xlsx('project_file/xlsx.xlsx');
-//    echo ($xlsx->getFileText());
+    event(new \App\Events\CreateTranslation(\App\module\translation\model\Translation::first()));
 
-//    $txt=new  \App\module\read_file\Txt('project_file/txt.txt');
-//    echo ($txt->getFileText());
+    $totalMatchWithAfterBefore=new \App\module\translate_segment_suggestion\TotalMatchWithAfterBefore('3');
+dump($totalMatchWithAfterBefore->getSuggestionList());
+
+
+
+//    $googleTranslate=new \App\module\translate_segment_suggestion\GoogleTranslate('man');
+//    dump($googleTranslate->getSuggestionList());
 
     $filePath='project_file/html.html';
 
-   $getFileSegment=new \App\module\read_file\GetFileSegment($filePath);
+   $getFileSegment=new \App\module\segment_helper\GetFileSegment($filePath);
     dump($getFileSegment->getSegment());
 
 });

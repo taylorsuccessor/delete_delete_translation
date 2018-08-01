@@ -1,8 +1,8 @@
 <?php
 
-namespace App\module\read_file;
+namespace App\module\segment_helper;
 
-use App\module\read_file\PrepareSegment;
+use App\module\segment_helper\PrepareSegment;
 
 class GetFileSegment{
     public $filePath;
@@ -24,7 +24,7 @@ class GetFileSegment{
         $filePathArray = explode('.', $this->filePath);
         $extension = end($filePathArray);
 
-        $className='\App\module\read_file\\'.ucfirst($extension);
+        $className='\App\module\segment_helper\read_file\\'.ucfirst($extension);
         if(!class_exists($className)){dd('not');}
         $fileReader=new  $className($this->filePath);
         return $fileReader->getFileText();

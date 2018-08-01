@@ -123,7 +123,7 @@
       data: this.data
     });
 
-    // Create the first chart
+    // NotificationCreate the first chart
     this.createChart(this.optionsProvider.getCurrentOptions());
 
     // As chart is initialized from the event loop now we can reset our timeout reference

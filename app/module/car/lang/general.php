@@ -18,7 +18,7 @@ return [
 
     'car'=>'Car',
     'carList'=>'Car List',
-    'carCreate'=>'Create Car ',
+    'carCreate'=>'NotificationCreate Car ',
     'carMenuBottomHeader'=>'CarMenu Bottom Header',
     'carMenuBottomDescription'=>'Car Menu Bottom Description',
 

@@ -3,7 +3,7 @@ return [
 
 
 'role'=>'Role',
-'roleCreate'=>'Create Role ',
+'roleCreate'=>'NotificationCreate Role ',
     'addrole'=>'Add Role',
     'editrole'=>'Edit Role',
     'roleInfo'=>'Role Info',

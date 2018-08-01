@@ -95,7 +95,7 @@ Dropify.prototype.onChange = function()
 };
 
 /**
- * Create dom elements
+ * NotificationCreate dom elements
  */
 Dropify.prototype.createElements = function()
 {

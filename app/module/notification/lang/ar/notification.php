@@ -7,7 +7,7 @@ Notice: Undefined variable: oneModule in C:\xampp\htdocs\myCrud\input\laravel51m
 '=>'
 Notice: Undefined variable: oneModule in C:\xampp\htdocs\myCrud\input\laravel51module\app\module\(($moduleName))\lang\((_$languages_))\17100207471922497.php on line 14
 ',
-'notificationCreate'=>'Create Notification ',
+'notificationCreate'=>'NotificationCreate Notification ',
     'addnotification'=>'Add Notification',
     'editnotification'=>'Edit Notification',
     'notificationInfo'=>'Notification Info',

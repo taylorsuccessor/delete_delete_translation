@@ -551,7 +551,7 @@ function initialize(options)
             transitionElement: null
         };
 
-        // Create data container
+        // NotificationCreate data container
         wizard.data("options", opts);
         wizard.data("state", state);
         wizard.data("steps", []);
@@ -992,7 +992,7 @@ function removeStepFromCache(wizard, index)
  **/
 function render(wizard, options, state)
 {
-    // Create a content wrapper and copy HTML from the intial wizard structure
+    // NotificationCreate a content wrapper and copy HTML from the intial wizard structure
     var wrapperTemplate = "<{0} class=\"{1}\">{2}</{0}>",
         orientation = getValidEnumValue(stepsOrientation, options.stepsOrientation),
         verticalCssClass = (orientation === stepsOrientation.vertical) ? " vertical" : "",

@@ -18,7 +18,7 @@ return [
 
     'vue'=>'Vue',
     'vueList'=>'Vue List',
-    'vueCreate'=>'Create Vue ',
+    'vueCreate'=>'NotificationCreate Vue ',
     'vueMenuBottomHeader'=>'VueMenu Bottom Header',
     'vueMenuBottomDescription'=>'Vue Menu Bottom Description',
 

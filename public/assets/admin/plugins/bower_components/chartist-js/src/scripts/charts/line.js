@@ -117,9 +117,9 @@
       normalized: Chartist.getDataArray(this.data, options.reverseData, true)
     };
 
-    // Create new svg object
+    // NotificationCreate new svg object
     this.svg = Chartist.createSvg(this.container, options.width, options.height, options.classNames.chart);
-    // Create groups for labels, grid and series
+    // NotificationCreate groups for labels, grid and series
     var gridGroup = this.svg.elem('g').addClass(options.classNames.gridGroup);
     var seriesGroup = this.svg.elem('g');
     var labelGroup = this.svg.elem('g').addClass(options.classNames.labelGroup);
@@ -323,7 +323,7 @@
    * @return {Object} An object which exposes the API for the created chart
    *
    * @example
-   * // Create a simple line chart
+   * // NotificationCreate a simple line chart
    * var data = {
    *   // A labels array that can contain any sort of values
    *   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
@@ -357,7 +357,7 @@
    * });
    *
    * @example
-   * // Create a line chart with responsive options
+   * // NotificationCreate a line chart with responsive options
    *
    * var data = {
    *   // A labels array that can contain any sort of values

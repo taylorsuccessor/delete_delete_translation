@@ -45,7 +45,7 @@ var defaults = {
 };
 
 /**
- * Create Switchery object.
+ * NotificationCreate Switchery object.
  *
  * @param {Object} element
  * @param {Object} options
@@ -90,7 +90,7 @@ Switchery.prototype.show = function() {
 };
 
 /**
- * Create custom switch.
+ * NotificationCreate custom switch.
  *
  * @returns {Object} this.switcher
  * @api private

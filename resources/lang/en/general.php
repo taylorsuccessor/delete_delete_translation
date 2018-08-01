@@ -23,14 +23,14 @@ return [
     'basic'=>'Basic',
     'edit_config'=>'Edit Config',
     'roles'=>'Roles',
-    'rolesCreate'=>'Create Role',
+    'rolesCreate'=>'NotificationCreate Role',
     'created_at'=>'Created At',
     'updated_at'=>'Updated At',
     'logout'=>'Logout',
 
     'authentication'=>'Authentication',
     'authenticationList'=>'Authentication List',
-    'authenticationCreate'=>'Create Authentication ',
+    'authenticationCreate'=>'NotificationCreate Authentication ',
     'authenticationMenuBottomHeader'=>'AuthenticationMenu Bottom Header',
     'authenticationMenuBottomDescription'=>'Authentication Menu Bottom Description',
 
@@ -38,7 +38,7 @@ return [
 
     'layout'=>'Layout',
     'layoutList'=>'Layout List',
-    'layoutCreate'=>'Create Layout ',
+    'layoutCreate'=>'NotificationCreate Layout ',
     'layoutMenuBottomHeader'=>'LayoutMenu Bottom Header',
     'layoutMenuBottomDescription'=>'Layout Menu Bottom Description',
 
@@ -47,14 +47,14 @@ return [
 
     'role'=>'Role',
     'roleList'=>'Role List',
-    'roleCreate'=>'Create Role ',
+    'roleCreate'=>'NotificationCreate Role ',
     'roleMenuBottomHeader'=>'RoleMenu Bottom Header',
     'roleMenuBottomDescription'=>'Role Menu Bottom Description',
 
 
     'user'=>'User',
     'userList'=>'User List',
-    'userCreate'=>'Create User ',
+    'userCreate'=>'NotificationCreate User ',
     'userMenuBottomHeader'=>'UserMenu Bottom Header',
     'userMenuBottomDescription'=>'User Menu Bottom Description',
 

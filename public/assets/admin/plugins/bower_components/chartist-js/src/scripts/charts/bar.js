@@ -117,7 +117,7 @@
 
     var highLow;
 
-    // Create new svg element
+    // NotificationCreate new svg element
     this.svg = Chartist.createSvg(
       this.container,
       options.width,
@@ -343,7 +343,7 @@
         positions.y1 = Math.min(Math.max(positions.y1, chartRect.y2), chartRect.y1);
         positions.y2 = Math.min(Math.max(positions.y2, chartRect.y2), chartRect.y1);
 
-        // Create bar element
+        // NotificationCreate bar element
         bar = seriesElement.elem('line', positions, options.classNames.bar).attr({
           'ct:value': [value.x, value.y].filter(Chartist.isNum).join(','),
           'ct:meta': Chartist.getMetaData(series, valueIndex)
@@ -386,7 +386,7 @@
    * @return {Object} An object which exposes the API for the created chart
    *
    * @example
-   * // Create a simple bar chart
+   * // NotificationCreate a simple bar chart
    * var data = {
    *   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
    *   series: [

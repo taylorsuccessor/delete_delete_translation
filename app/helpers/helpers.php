@@ -94,6 +94,7 @@ if (!function_exists('canAccess')) {
 if (!function_exists('notification')) {
 	function notification($name, $data)
 	{
+
 		$notification = new \App\module\notification\admin\controller\SendNotification;
 		$notification->send($name, $data);
 	}

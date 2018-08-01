@@ -35,7 +35,7 @@ $this->getModuleSeedFile();
         $moduleList=scandir($allModulePath);
         if(is_array($moduleList)){
             foreach($moduleList as $oneModule){
-                $oneModuleSeedPath=$allModulePath.'\\'.$oneModule.'\\database\\seed';
+                $oneModuleSeedPath=$allModulePath.'/'.$oneModule.'/database/seed';
                 if(!is_dir($oneModuleSeedPath) || $oneModule =='.' ||$oneModule=='..'){continue;}
                 $fileList=scandir($oneModuleSeedPath);
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\module\read_file;
+namespace App\module\segment_helper;
 
 
 
@@ -19,7 +19,8 @@ class PrepareSegment {
         return $this->segmentArray;
     }
 
-    public function removeEmptySegment(){
+
+    private function removeEmptySegment(){
 
         $dleteSegment=config('segmentFile.deleteSegment');
         foreach($this->segmentArray as $key=>$segment){

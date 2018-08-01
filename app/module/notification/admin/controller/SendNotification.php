@@ -14,13 +14,8 @@ use App\module\notification\admin\repository\EloquentNotificationRepository as r
 class SendNotification {
 
 
-   public function sayFoo($test){
-      dd('Foo from SendNotification class'.$test);
-   }
-
    public   function  send($name,$data)
    {
-
       $oNotification =new rNotification();
 
       $oNotification=$oNotification->getByFilter(['name'=>$name,'language'=>config('app.locale')]);
@@ -74,6 +69,7 @@ class SendNotification {
    }
    public function sms($notificationRow,$data){
 
+       if(!(isset($data['user']['phone']) || isset($data['user']['phone']))){return false;}
       $phone=(empty($data['user']['phone']) || strlen($data['user']['phone'])<5)? $data['user']['mobile']:$data['user']['phone'];
       if(empty($phone) || strlen($phone)<5){return false;}
 

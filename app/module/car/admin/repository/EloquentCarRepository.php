@@ -4,6 +4,12 @@ use Session;
 use App\module\car\model\Car;
 use App\module\car\admin\Repository\CarContract;
 
+
+
+use App\module\car\event\Create as eCreate;
+use App\module\car\event\Edit as eEdit;
+use App\module\car\event\Delete as eDelete;
+
 class EloquentCarRepository implements CarContract
 {
 
@@ -13,13 +19,13 @@ class EloquentCarRepository implements CarContract
         $oResults = new Car();
 
 
-if(canAccess('admin.car.allData')) {
+        if(canAccess('admin.car.allData')) {
 
-}elseif(canAccess('admin.car.groupData')){
-$oResults = $oResults->where('car.user_id','=',  \Auth::user()->id);
-}elseif(canAccess('admin.car.userData')){
+        }elseif(canAccess('admin.car.groupData')){
+            $oResults = $oResults->where('car.user_id','=',  \Auth::user()->id);
+        }elseif(canAccess('admin.car.userData')){
 
-}else{return [];}
+        }else{return [];}
 
         if (isset($data['id']) && !empty($data['id'])) {
             $oResults = $oResults->where('car.id', '=' , $data['id']);
@@ -44,53 +50,53 @@ $oResults = $oResults->where('car.user_id','=',  \Auth::user()->id);
         }
 
 
-if ($statistic !== null) {
-$statistic = $this->getStatistic(clone $oResults);
-}
+        if ($statistic !== null) {
+            $statistic = $this->getStatistic(clone $oResults);
+        }
 
         if (isset($data['order']) && !empty($data['order'])) {
             $sort = (isset($data['sort']) && !empty($data['sort'])) ? $data['sort'] : 'desc';
             $oResults = $oResults->orderBy('car.'.$data['order'], $sort);
         }else{
-$oResults = $oResults->orderBy('car.id', 'desc');
-}
+            $oResults = $oResults->orderBy('car.id', 'desc');
+        }
 
 
         if(isset($data['getAllRecords']) && !empty($data['getAllRecords'])){
-             $oResults = $oResults->get();
+            $oResults = $oResults->get();
         }
         elseif (isset($data['page_name']) && !empty($data['page_name'])) {
-             $oResults = $oResults->paginate(config('laravel55.pagination_size'), ['*'], $data['page_name']);
+            $oResults = $oResults->paginate(config('laravel55.pagination_size'), ['*'], $data['page_name']);
         }else{
-             $oResults = $oResults->paginate(config('laravel55.pagination_size'));
+            $oResults = $oResults->paginate(config('laravel55.pagination_size'));
         }
         return $oResults;
     }
 
     public function getAllList($data=[]){
 
-          $oResults = new Car();
+        $oResults = new Car();
 
-          $oResults = $oResults->get();
+        $oResults = $oResults->get();
 
-$aResults=[];
+        $aResults=[];
 
-foreach($oResults as $result){
-$aResults[$result->id]=$result->name;
-}
-          return $aResults;
+        foreach($oResults as $result){
+            $aResults[$result->id]=$result->name;
+        }
+        return $aResults;
     }
 
 
-public function getStatistic($oResults)
-{
-$oTotalResults=clone $oResults;
+    public function getStatistic($oResults)
+    {
+        $oTotalResults=clone $oResults;
 
-$current_month = gmdate('Y-m');
+        $current_month = gmdate('Y-m');
 
-$totalResults=$oTotalResults->count();
-return ['total'=>$totalResults];
-}
+        $totalResults=$oTotalResults->count();
+        return ['total'=>$totalResults];
+    }
 
 
     public function create($data)
@@ -100,6 +106,7 @@ return ['total'=>$totalResults];
 
         if ($result) {
             Session::flash('flash_message', 'car added!');
+            event(new eCreate($result));
             return $result;
         } else {
             return false;
@@ -109,18 +116,20 @@ return ['total'=>$totalResults];
     public function show($id)
     {
 
-$car = Car::findOrFail($id);
+        $car = Car::findOrFail($id);
 
         return $car;
     }
 
     public function destroy($id)
     {
+        $old=Car::find($id)->toJson();
+        $result = Car::destroy($id);
 
-        $result =  Car::destroy($id);
 
         if ($result) {
             Session::flash('flash_message', 'car deleted!');
+            event(new eDelete($old));
             return true;
         } else {
             return false;
@@ -129,11 +138,13 @@ $car = Car::findOrFail($id);
 
     public function update($id,$data)
     {
-$car = Car::findOrFail($id);
-       $result= $car->update(is_array($data)? $data:$data->all());
+        $model = Car::findOrFail($id);
+        $oldModel=$model->toArray();
+        $result= $model->update(is_array($data)? $data:$data->all());
         if ($result) {
             Session::flash('flash_message', 'car updated!');
-            return true;
+            event(new eEdit($oldModel,$model));
+            return $result;
         } else {
             return false;
         }

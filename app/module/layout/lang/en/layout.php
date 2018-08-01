@@ -3,7 +3,7 @@ return [
 
 
 'layout'=>'Layout',
-'layoutCreate'=>'Create Layout ',
+'layoutCreate'=>'NotificationCreate Layout ',
     'addlayout'=>'Add Layout',
     'editlayout'=>'Edit Layout',
     'layoutInfo'=>'Layout Info',

@@ -19,7 +19,7 @@ return [
 
     'authentication'=>'Authentication',
     'authenticationList'=>'Authentication List',
-    'authenticationCreate'=>'Create Authentication ',
+    'authenticationCreate'=>'NotificationCreate Authentication ',
     'authenticationMenuBottomHeader'=>'AuthenticationMenu Bottom Header',
     'authenticationMenuBottomDescription'=>'Authentication Menu Bottom Description',
 

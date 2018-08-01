@@ -286,7 +286,7 @@ var Chartist = {
   };
 
   /**
-   * Create or reinitialize the SVG element for the chart
+   * NotificationCreate or reinitialize the SVG element for the chart
    *
    * @memberof Chartist.Core
    * @param {Node} container The containing DOM Node object that will be used to plant the SVG element
@@ -309,7 +309,7 @@ var Chartist = {
       container.removeChild(svg);
     });
 
-    // Create svg object with width and height or use 100% as default
+    // NotificationCreate svg object with width and height or use 100% as default
     svg = new Chartist.Svg('svg').attr({
       width: width,
       height: height
@@ -386,7 +386,7 @@ var Chartist = {
    * @memberof Chartist.Core
    * @param {Object} data The series object that contains the data to be visualized in the chart
    * @param {Boolean} reverse If true the whole data is reversed by the getDataArray call. This will modify the data object passed as first parameter. The labels as well as the series order is reversed. The whole series data arrays are reversed too.
-   * @param {Boolean} multi Create a multi dimensional array from a series data array where a value object with `x` and `y` values will be created.
+   * @param {Boolean} multi NotificationCreate a multi dimensional array from a series data array where a value object with `x` and `y` values will be created.
    * @return {Array} A plain array that contains the data to be visualized in the chart
    */
   Chartist.getDataArray = function (data, reverse, multi) {

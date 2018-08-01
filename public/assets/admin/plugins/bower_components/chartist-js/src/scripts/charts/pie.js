@@ -91,7 +91,7 @@
       startAngle = options.startAngle,
       dataArray = Chartist.getDataArray(this.data, options.reverseData);
 
-    // Create SVG.js draw
+    // NotificationCreate SVG.js draw
     this.svg = Chartist.createSvg(this.container, options.width, options.height,options.donut ? options.classNames.chartDonut : options.classNames.chartPie);
     // Calculate charting rect
     chartRect = Chartist.createChartRect(this.svg, options, defaultOptions.padding);
@@ -177,7 +177,7 @@
       var start = Chartist.polarToCartesian(center.x, center.y, radius, overlappigStartAngle),
         end = Chartist.polarToCartesian(center.x, center.y, radius, endAngle);
 
-      // Create a new path element for the pie chart. If this isn't a donut chart we should close the path for a correct stroke
+      // NotificationCreate a new path element for the pie chart. If this isn't a donut chart we should close the path for a correct stroke
       var path = new Chartist.Svg.Path(!options.donut)
         .move(end.x, end.y)
         .arc(radius, radius, 0, endAngle - startAngle > 180, 0, start.x, start.y);
@@ -187,7 +187,7 @@
         path.line(center.x, center.y);
       }
 
-      // Create the SVG path
+      // NotificationCreate the SVG path
       // If this is a donut chart we add the donut class, otherwise just a regular slice
       var pathElement = seriesGroups[i].elem('path', {
         d: path.stringify()

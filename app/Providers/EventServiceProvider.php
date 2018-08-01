@@ -16,6 +16,15 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+        'App\module\car\event\Create' =>[
+            'App\module\car\listener\NotificationCreate'
+        ],
+        'App\module\car\event\Edit' =>[
+            'App\module\car\listener\NotificationEdit'
+        ],
+        'App\module\car\event\Delete' =>[
+            'App\module\car\listener\NotificationDelete'
+        ],
     ];
 
     /**

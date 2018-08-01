@@ -1300,7 +1300,7 @@ var requirejs, require, define;
                         pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
                         location = pkgObj.location;
 
-                        //Create a brand new object on pkgs, since currentPackages can
+                        //NotificationCreate a brand new object on pkgs, since currentPackages can
                         //be passed in again, and config.pkgs is the internal transformed
                         //state for all package configs.
                         pkgs[pkgObj.name] = {
@@ -1757,7 +1757,7 @@ var requirejs, require, define;
         newContext: newContext
     };
 
-    //Create default context.
+    //NotificationCreate default context.
     req({});
 
     //Exports some context-sensitive methods on global require.

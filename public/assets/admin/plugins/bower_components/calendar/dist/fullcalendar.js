@@ -655,7 +655,7 @@ function mergeProps(propObjs, complexProps) {
 }
 
 
-// Create an object that has the given prototype. Just like Object.create
+// NotificationCreate an object that has the given prototype. Just like Object.create
 function createObject(proto) {
 	var f = function() {};
 	f.prototype = proto;
@@ -2600,7 +2600,7 @@ var MouseFollower = Class.extend({
 	},
 
 
-	// Gets the tracking element. Create it if necessary
+	// Gets the tracking element. NotificationCreate it if necessary
 	getEl: function() {
 		var el = this.el;
 

@@ -2962,7 +2962,7 @@
      * undo
      */
     this.undo = function () {
-      // Create snap shot if not yet recorded
+      // NotificationCreate snap shot if not yet recorded
       if ($editable.html() !== stack[stackOffset].contents) {
         this.recordUndo();
       }
@@ -2994,11 +2994,11 @@
         stack = stack.slice(0, stackOffset);
       }
 
-      // Create new snapshot and push it to the end
+      // NotificationCreate new snapshot and push it to the end
       stack.push(makeSnapshot());
     };
 
-    // Create first undo stack
+    // NotificationCreate first undo stack
     this.recordUndo();
   };
 
@@ -4114,7 +4114,7 @@
 
       var anchors = [];
       if (isTextChanged) {
-        // Create a new link when text changed.
+        // NotificationCreate a new link when text changed.
         var anchor = rng.insertNode($('<A>' + linkText + '</A>')[0]);
         anchors.push(anchor);
       } else {

@@ -455,7 +455,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Create a new instance object. */
+	/* NotificationCreate a new instance object. */
 	_newInst: function(target, inline) {
 		var id = target[0].id.replace(/([^A-Za-z0-9_\-])/g, "\\\\$1"); // escape jQuery meta chars
 		return {id: id, input: target, // associated target

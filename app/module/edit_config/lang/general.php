@@ -18,7 +18,7 @@ return [
 
     'edit_config'=>'Edit Config',
     'edit_configList'=>'Edit Config List',
-    'edit_configCreate'=>'Create Edit Config ',
+    'edit_configCreate'=>'NotificationCreate Edit Config ',
     'edit_configMenuBottomHeader'=>'Edit ConfigMenu Bottom Header',
     'edit_configMenuBottomDescription'=>'Edit Config Menu Bottom Description',
 
