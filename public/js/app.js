@@ -35012,7 +35012,7 @@ function callActivatedHooks (queue) {
 
 /**
  * Push a watcher into the watcher queue.
- * Jobs with duplicate IDs will be skipped unless it's
+ * job with duplicate IDs will be skipped unless it's
  * pushed when the queue is being flushed.
  */
 function queueWatcher (watcher) {

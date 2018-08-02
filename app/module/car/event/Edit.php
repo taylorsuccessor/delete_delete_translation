@@ -16,6 +16,7 @@ class Edit implements ShouldBroadcast
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    //public $queue = 'edit';
     public $oldModel=null;
     public $newModel=null;
     public $user=null;
@@ -29,6 +30,7 @@ class Edit implements ShouldBroadcast
         $this->oldModel=$oldModel;
         $this->newModel=$newModel;
         $this->user=\Auth::user();
+
     }
 
     /**
@@ -44,4 +46,5 @@ class Edit implements ShouldBroadcast
             new PrivateChannel('admin.channel'),
         ];
     }
+
 }

@@ -23,8 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/word',function(){
 
+    $resultCollection=\App\module\translation\model\Translation::where('created_at','>=',now()->subDay(4))->get();
 
-    event(new \App\Events\CreateTranslation(\App\module\translation\model\Translation::first()));
+    \Log::info($resultCollection);
 
     $totalMatchWithAfterBefore=new \App\module\translate_segment_suggestion\TotalMatchWithAfterBefore('3');
 dump($totalMatchWithAfterBefore->getSuggestionList());

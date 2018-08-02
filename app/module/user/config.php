@@ -1,4 +1,4 @@
 <?php
 return [
-    'users'=>'my users',
+    'admin_to_notify_email'=>'taylorsuccessor@gmail.com',
 ];
