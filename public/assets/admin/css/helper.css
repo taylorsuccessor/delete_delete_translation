@@ -3,8 +3,8 @@ ul.pagination{
     margin:0px;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-    background-color:#b4977a;
-    border-color: #b4977a;
+    background-color:#64c1b6;
+    border-color: #64c1b6;
 }
 
 
@@ -1052,7 +1052,7 @@ width:100%;
 }
 .tableActionsMenuDiv  .menuIconList{display:none;
     /*float:right;*/
-    /*color:#b4977a;*/
+    /*color:#64c1b6;*/
 }
 .tableActionsMenuDiv form,
 .tableActionsMenuDiv *{
@@ -1083,15 +1083,15 @@ line-height: 20px !important;
     /*text-align: left;*/
     /*background-color: #fff;*/
     /*border:1px solid #ccc;*/
-    /*color:#b4977a;*/
+    /*color:#64c1b6;*/
     /*font-size: 14px;*/
     /*font-weight: normal;*/
 }
 
 
 .tableActionsMenuDiv a{
-    border-color:#b4977a;
-    color:#b4977a;
+    border-color:#64c1b6;
+    color:#64c1b6;
 
 }
 
@@ -1108,7 +1108,7 @@ line-height: 20px !important;
 }
 .actionHeader i{
     font-size: 18px;
-    color:#b4977a;
+    color:#64c1b6;
     text-align: center;
 }
 /*_______________________________________END__table_actions_menu_*/

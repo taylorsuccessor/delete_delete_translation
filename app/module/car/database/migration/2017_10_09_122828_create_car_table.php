@@ -16,16 +16,17 @@ class CreateCarTable extends Migration
         Schema::create('car', function (Blueprint $table) {
             $table->increments('id');
 
-    $table->string('name');
+            $table->string('name');
 
-    $table->string('email');
+            $table->string('email');
 
-    $table->string('type');
+            $table->string('type');
 
-    $table->string('phone');
+            $table->string('phone');
 
 
-$table->timestamps();
+            $table->timestamps();
+            $table->softDeletes();
         });
 
 //        Schema::table('car', function (Blueprint $table) {

@@ -1,5 +1,15 @@
 let mix = require('laravel-mix');
 
+
+
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            '@module': __dirname + '/app/module',
+            '@resource': __dirname + '/resources/assets/js',
+        },
+    },
+});
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -14,7 +24,7 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
-mix.styles([
-    'public/css/vendor/normalize.css',
-    'public/css/vendor/videojs.css'
-], 'public/css/all.css');
+// mix.styles([
+//     'public/css/vendor/normalize.css',
+//     'public/css/vendor/videojs.css'
+// ], 'public/css/all.css');

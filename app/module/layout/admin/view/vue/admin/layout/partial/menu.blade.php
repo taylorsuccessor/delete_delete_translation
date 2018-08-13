@@ -26,7 +26,7 @@
 
     <div class="myClass" id="class2">
 
- <li><router-link to="/foo">foo link</router-link></li>
+ @if(canAccess('admin.vue.show')) <li><router-link to="/foo">foo link</router-link></li>@endif
  <li><router-link to="/bar">bar link</router-link></li>
  <li><router-link to="/admin/vue">vue index link</router-link></li>
 

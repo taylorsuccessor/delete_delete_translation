@@ -211,6 +211,15 @@ return [
 
         App\module\translation\TranslationServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
+
+
+        App\module\user_notification\UserNotificationServiceProvider::class,
+        App\module\hyperpay\HyperpayServiceProvider::class,
+
+        App\module\upload_file\UploadFileServiceProvider::class,
+        App\module\system_localization\SystemLocalizationServiceProvider::class,
+
+        App\module\project\ProjectServiceProvider::class,
     ],
 
     /*

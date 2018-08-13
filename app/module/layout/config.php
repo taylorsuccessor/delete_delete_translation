@@ -40,6 +40,41 @@ return [
                     'icon' => 'fa fa-gears',
                     'parameter'=>'',
                 ],
+                [
+                    'route' => 'admin.user_notification.index',
+                    'title' => 'user_notification',
+                    'icon' => 'fa fa-gears',
+                    'parameter'=>'',
+                ],
+                [
+                    'route' => 'admin.upload_file.index',
+                    'title' => 'upload_file',
+                    'icon' => 'fa fa-gears',
+                    'parameter'=>'?',
+                ],
+                [
+                    'route' => 'admin.system_localization.index',
+                    'title' => 'system_localization',
+                    'icon' => 'fa fa-gears',
+                    'parameter'=>'?',
+                ],
+            ],
+
+
+        ],
+
+        [
+            'route' => 'admin.hyperpay.index',
+            'title' => 'setting',
+            'icon' => 'fa fa-credit-card',
+            'subMenus' =>
+                [
+                    [
+                        'route' => 'admin.hyperpay.index',
+                        'title' => 'hyperpay',
+                        'icon' => 'fa fa-gears',
+                        'parameter'=>'?',
+                    ],
                 ]
 
         ],

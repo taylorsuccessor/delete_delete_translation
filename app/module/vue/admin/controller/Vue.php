@@ -25,120 +25,125 @@ use App\module\vue\admin\repository\VueContract as rVue;
 
 class Vue extends Controller
 {
-private $rVue;
+    private $rVue;
 
-public function __construct(rVue $rVue)
-{
-$this->rVue=$rVue;
-}
-/**
-* Display a listing of the resource.
-*
-* @return void
-*/
-public function index(Request $request)
-{
+    public function __construct(rVue $rVue)
+    {
+        $this->rVue=$rVue;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
+    public function index(Request $request)
+    {
 
-$statistic=null;
-$oResults=$this->rVue->getByFilter($request,$statistic);
+        $statistic=null;
+        $oResults=$this->rVue->getByFilter($request,$statistic);
 
-    return new JsonResponse(['oResults'=>$oResults->all(),'total'=>$oResults->total(),'pagination_size'=>15],200);
-}
-
-
-/**
-* Show the form for creating a new resource.
-*
-* @return view
-*/
-public function create(Request $request)
-{
+        return new JsonResponse(['results'=>$oResults->all(),'count'=>$oResults->total(),'per_page'=>15],200);
+    }
 
 
-return view('admin.vue::create',compact('request'));
-}
-
-/**
-* Store a newly created resource in storage.
-*
-* @return redirect
-*/
-public function store(createRequest $request)
-{
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return view
+     */
+    public function create(Request $request)
+    {
 
 
-$oResults=$this->rVue->create($request->all());
+        return view('admin.vue::create',compact('request'));
+    }
 
-return redirect('admin/vue');
-}
-
-/**
-* Display the specified resource.
-*
-* @param  int  $id
-*
-* @return view
-*/
-public function show($id,Request $request)
-{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return redirect
+     */
+    public function store(createRequest $request)
+    {
 
 
-$vue=$this->rVue->show($id);
-$request->merge(['vue_id'=>$id,'page_name'=>'page']);
+        $oResults=$this->rVue->create($request->all());
 
-return new JsonResponse(['data'=>$vue->toArray()],200);
+        $statusCode = ($oResults)? 200:500;
+        return new JsonResponse(['data'=>$oResults],$statusCode);
+    }
 
-return view('admin.vue::show', compact('vue','request'));
-}
-
-/**
-* Show the form for editing the specified resource.
-*
-* @param  int  $id
-*
-* @return view
-*/
-public function edit($id)
-{
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return view
+     */
+    public function show($id,Request $request)
+    {
 
 
-$vue=$this->rVue->show($id);
+        $vue=$this->rVue->show($id);
+        $request->merge(['vue_id'=>$id,'page_name'=>'page']);
+
+        return new JsonResponse(['data'=>$vue->toArray()],200);
+
+        return view('admin.vue::show', compact('vue','request'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return view
+     */
+    public function edit($id)
+    {
 
 
-return view('admin.vue::edit', compact('vue'));
-}
+        $vue=$this->rVue->show($id);
 
-/**
-* Update the specified resource in storage.
-*
-* @param  int  $id
-*
-* @return redirect
-*/
-public function update($id, editRequest $request)
-{
 
-$result=$this->rVue->update($id,$request);
+        return view('admin.vue::edit', compact('vue'));
+    }
 
-    return new JsonResponse(['status'=>'success'],200);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     *
+     * @return redirect
+     */
+    public function update($id, editRequest $request)
+    {
 
-return redirect(route('admin.vue.index'));
-}
+        $oResults=$this->rVue->update($id,$request);
 
-/**
-* Remove the specified resource from storage.
-*
-* @param  int  $id
-*
-* @return redirect
-*/
-public function destroy($id)
-{
-$vue=$this->rVue->destroy($id);
 
-    return new JsonResponse(['status'=>'success'],200);
-return redirect(route('admin.vue.index'));
-}
+        $statusCode = ($oResults)? 200:500;
+        return new JsonResponse(['data'=>$oResults],$statusCode);
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return redirect
+     */
+    public function destroy($id)
+    {
+        $vue=$this->rVue->destroy($id);
+
+        return new JsonResponse(['status'=>'success'],200);
+    }
+
+    public function getSetting(){
+
+
+        return new JsonResponse(['user'=>'success slkdfjsdf87dsf'],200);
+    }
 
 }

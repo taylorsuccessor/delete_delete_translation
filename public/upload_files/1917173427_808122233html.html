@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Print</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- LOGIN MODAL BEGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg login-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="display-flex">
+                        <div class="col-md-6 col-sm-6 col-sm-12 col-xs-12 display-flex">
+                            <div class="row login-left-side">
+                                <a class="close-login-modal visible-mobile-flex" data-dismiss="modal"><i class="icon-close"></i></a>
+                                <h2>    L                  o     g   i    n</h2>
+                                <form action="" class="login-modal-form">
+                                    <label for="login-email"><input id="login-email" type="text" placeholder="Email"></label>
+                                    <label for="login-pass"><input id="login-pass" type="text" placeholder="Password"></label>
+                                    <button>Login</button>
+                                    <p><a href="" onclick="openForgetModal(event)" class="recover-pass-link">Recover Password</a></p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-sm-12 display-flex hidden-xs">
+                            <div class="row login-right-side">
+                                <a class="close-login-modal" data-dismiss="modal"><i class="icon-close"></i></a>
+                                <h3>Sign Up</h3>
+                                <p>Don't have an account, ? Create' Your Account, It "takes less than a minute.</p>
+                                <button onclick="openSignUpModal()">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- LOGIN MODAL EOF -->
+<!-- SIGN UP MODAL BEGIN -->
+<div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg login-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="display-flex">
+                        <div class="col-md-6 col-sm-6 col-xs-12 display-flex">
+                            <div class="row login-left-side">
+                                <a class="close-login-modal visible-mobile-flex" data-dismiss="modal"><i class="icon-close"></i></a>
+                                <h2>Let’s Get Started</h2>
+                                <form action="" class="login-modal-form">
+                                    <label for="register-first-name"><input id="register-first-name" type="text" placeholder="First Name"></label>
+                                    <label for="register-last-name"><input id="register-last-name" type="text" placeholder="Last NAme"></label>
+                                    <label for="register-email"><input id="register-email" type="text" placeholder="Email"></label>
+                                    <label for="register-phone-number"><input id="register-phone-number" type="text" placeholder="Contact Number"></label>
+                                    <label for="register-pass"><input id="register-pass" type="text" placeholder="Password"></label>
+                                    <label for="register-confirm-pass"><input id="register-confirm-pass" type="text" placeholder="Confirm Password"></label>
+                                    <button>Register</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 display-flex hidden-xs">
+                            <div class="row login-right-side">
+                                <a class="close-login-modal" data-dismiss="modal">
+                                    <i class="icon-close"></i>
+                                </a>
+                                <h3>Login</h3>
+                                <p>Sed ut perspiciatis unde omnis iste natus voluptatem accusantium doloremque laudantium.</p>
+                                <button onclick="openLoginModal()">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SIGN UP MODAL EOF -->
+<!-- FORGET MODAL BEGIN -->
+<div class="modal fade" id="forget-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg login-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="display-flex">
+                        <div class="col-md-6 col-sm-6 col-xs-12 display-flex">
+                            <div class="row login-left-side">
+                                <a class="close-login-modal visible-mobile-flex" data-dismiss="modal"><i class="icon-close"></i></a>
+                                <p class="forget-field-back"><a href=""><i class="icon-back"></i> Back</a></p>
+                                <h2>Forget Password</h2>
+                                <p>Don't worry if you forget your password?
+                                    It takes few minutes to recover your password.</p>
+                                <form action="" class="login-modal-form">
+                                    <label for="forget-email"><input id="forget-email" type="text" placeholder="Email"></label>
+                                    <button>Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 display-flex hidden-xs">
+                            <div class="row login-right-side">
+                                <a class="close-login-modal" data-dismiss="modal"><i class="icon-close"></i></a>
+                                <h3>Sign Up</h3>
+                                <p>Don't have an account ? Create Your Account,
+                                    It takes less than a minute.</p>
+                                <button onclick="openSignUpModal()">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FORGET MODAL EOF -->
+
+<!-- HEADER BEGIN -->
+<header class="container-fluid header first-screen">
+    <div class="scroll-down scroll"><a href="#our-products"><i class="icon-long-arrow-down"></i></a></div>
+    <!--<div class="header-wave-one"></div>-->
+    <!--<div class="header-wave-two"></div>-->
+    <div class="header-overlay"></div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 animate-top-menu">
+                    <nav class="navbar navbar-art">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <ul class="nav navbar-nav navbar-right visible-mobile-flex">
+                                <li><a href="http://arab.print.celerart.com"><img class="mobile-lang" src="img/ar.png" alt=""></a></li>
+                                <li class="login-button"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                <li class="sign-up-button"><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+                            </ul>
+                            <a class="navbar-brand hidden-xs" href="#"><img src="img/logo.svg" alt="Logo"></a>
+                            <a class="navbar-brand visible-mobile-flex" href="#"><img src="img/mobile-logo.svg" alt="Logo"></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="http://arab.print.celerart.com/">العربية</a></li>
+                                <li class="login-button"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                <li class="sign-up-button"><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <div class="col-lg-10 col-lg-offset-1 col-xs-12 first-screen-desc text-center">
+                    <h1 class="element"></h1>
+                    <p>
+                        Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
+                        because occasionally circumstances occur in which toil.
+                    </p>
+                    <!--<p class="hidden-xs printer-pic">-->
+                    <!--<img src="img/icon-print.png" alt="">-->
+                    <!--</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER EOF -->
+
+<!-- CONTENT BEGIN -->
+<!-- OUR PRODUCTS BEGIN -->
+<section class="container our-products" id="our-products">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Our Products</h2>
+        </div>
+        <div class="col-lg-8 col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 text-center">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.</p>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <hr>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="our-products-block">
+                <div class="our-products-block-top">
+                    <img src="img/large-format-icon.jpg" alt="">
+                    <h3>Large Format</h3>
+                </div>
+                <ul>
+                    <li>Staple</li>
+                    <li>Comb</li>
+                    <li>Spiral</li>
+                    <li>Saddle stitch</li>
+                    <li>Ring Binders</li>
+                    <li>Saddle stitch</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="our-products-block">
+                <div class="our-products-block-top">
+                    <img src="img/normal-format-icon.jpg" alt="">
+                    <h3>Normal Document</h3>
+                </div>
+                <ul>
+                    <li>Economy, Value & Premium White Paper</li>
+                    <li>Premium White Paper 100% Recycled</li>
+                    <li>Colored Paper</li>
+                    <li>Economy, Value & Premium White Paper</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            <div class="our-products-block">
+                <div class="our-products-block-top">
+                    <img src="img/presentation-format-icon.jpg" alt="">
+                    <h3>Presentation Document</h3>
+                </div>
+                <ul>
+                    <li>Staple</li>
+                    <li>Comb</li>
+                    <li>Spiral</li>
+                    <li>Saddle stitch</li>
+                    <li>Ring Binders</li>
+                    <li>Saddle stitch</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- OUR PRODUCT EOF -->
+
+<!-- HOW IT WORKS BEGIN -->
+<section class="container-fluid how-it-works">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <!-- HOW IT WORKS TITLE BEGIN -->
+                <div class="col-xs-12">
+                    <h2 class="text-center">How It Works</h2>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-4 text-center">
+                    <p>
+                        Get the Job Done in 4 Steps
+                    </p>
+                    <hr>
+                </div>
+                <!-- HOW IT WORKS TITLE EOF -->
+                <div class="col-xs-12 how-it-works-steps-wrap text-center">
+                    <div class="row">
+                        <div class="how-it-works-line"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <img src="img/how-it-work-one.jpg" alt="">
+                            <p>
+                            <div class="how-it-works-line-boll"></div>
+                            <b>Upload Your Documents</b>
+                            <p> Login to your account after signing up and upload your PDF document to be
+                                printed.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <img src="img/how-it-work-two.jpg" alt="">
+                            <p>
+                            <div class="how-it-works-line-boll"></div>
+                            <b>Select Printing Option</b>
+                            <p>
+                                Select printing options like type of printing, colors, type of binding and delivery option.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <img src="img/how-it-work-three.jpg" alt="">
+                            <p>
+                            <div class="how-it-works-line-boll"></div>
+                            <b>Make Your Order</b>
+                            <p>
+                                Place your order securely using your Visa Card, Master Card or your Print Wallet.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <img src="img/how-it-work-four.jpg" alt="">
+                            <p>
+                            <div class="how-it-works-line-boll"></div>
+                            <b>Get Your Documents</b>
+                            <p>
+                                Get your documents delivered to you at your convenient or you might pick it up.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <button class="btn-art">Start printing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- HOW IT WORKS EOF -->
+
+<!-- VIDEO BEGIN -->
+<section class="container-fluid main-video-wrap">
+    <div class="row">
+        <video id="styled_video">
+            <source src="video/print.mp4" type="video/mp4">
+            <source src="video/print-ipad.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="video-play" id="style_it"><i class="icon-play"></i></button>
+        <button type="button" class="video-stop" id="stop_style_it">Stop It!</button>
+    </div>
+</section>
+<!-- VIDEO EOF -->
+
+<!-- PRICE CALCULATOR BEGIN -->
+<section class="container-fluid price-calc">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Price Calculator</h2>
+                </div>
+                <div class="col-lg-8 col-xs-12 col-lg-offset-2">
+                    <div class="col-xs-12 calc-wrap">
+                        <div class="row">
+                            <form action="">
+                                <!-- Document Type BEGIN -->
+                                <div class="col-xs-12 calc-row calc-row-30">
+                                    <h4>Document Type</h4>
+                                    <input class="calc-radio" id="large-format" type="radio" checked name="document-type">
+                                    <label for="large-format">Large Format</label>
+                                    <input class="calc-radio" id="normal-document" type="radio" name="document-type">
+                                    <label for="normal-document">Normal Document</label>
+                                    <input class="calc-radio" id="presentation-document" type="radio" name="document-type">
+                                    <label for="presentation-document">Presentation Document</label>
+                                </div>
+                                <!-- Document Type EOF -->
+                                <!-- Paper Size * Paper Weight WRAP BEGIN -->
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <!-- Paper Size BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row">
+                                            <h4>Paper Size</h4>
+                                            <input class="calc-radio" id="a0" type="radio" checked name="paper-size">
+                                            <label for="a0">A0</label>
+                                            <input class="calc-radio" id="a1" type="radio" name="paper-size">
+                                            <label for="a1">A1</label>
+                                            <input class="calc-radio" id="a2" type="radio" name="paper-size">
+                                            <label for="a2">A2</label>
+                                            <input class="calc-radio" id="a3" type="radio" name="paper-size" disabled>
+                                            <label for="a3">A3</label>
+                                            <input class="calc-radio" id="a4" type="radio" name="paper-size" disabled>
+                                            <label for="a4">A4</label>
+                                            <input class="calc-radio" id="a5" type="radio" name="paper-size" disabled>
+                                            <label for="a5">A5</label>
+                                        </div>
+                                        <!-- Paper Size EOF -->
+                                        <!-- Paper Weight BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row calc-row-30">
+                                            <h4>Paper Weight</h4>
+                                            <input class="calc-radio" id="80gsm" type="radio" name="paper-weight" checked>
+                                            <label for="80gsm">80 GSM</label>
+                                            <input class="calc-radio" id="100gsm" type="radio" name="paper-weight">
+                                            <label for="100gsm">100 GSM</label>
+                                        </div>
+                                        <!-- Paper Weight EOF -->
+                                    </div>
+                                </div>
+                                <!-- Paper Size * Paper Weight WRAP EOF -->
+                                <!-- Paper Type BEGIN -->
+                                <div class="col-xs-12 calc-row calc-row-30">
+                                    <h4>Paper Type</h4>
+                                    <input class="calc-radio" id="glossy-paper" type="radio" checked name="paper-type">
+                                    <label for="glossy-paper">Glossy Paper</label>
+                                    <input class="calc-radio" id="normal-paper" type="radio" name="paper-type">
+                                    <label for="normal-paper">Normal Printing Paper</label>
+                                    <input class="calc-radio" id="sticker-glossy-paper" type="radio" name="paper-type">
+                                    <label for="sticker-glossy-paper">Sticker Glossy Paper</label>
+                                </div>
+                                <!-- Paper Type EOF -->
+                                <!-- Color & Side WRAP BEGIN -->
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <!-- Color BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row calc-row-25">
+                                            <h4>Color</h4>
+                                            <input class="calc-radio" type="radio" id="black-and-white" name="color" checked>
+                                            <label for="black-and-white">Black And White</label>
+                                            <input class="calc-radio" type="radio" id="colored" name="color">
+                                            <label for="colored">Colored</label>
+                                        </div>
+                                        <!-- Color EOF -->
+                                        <!-- Side BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row calc-row-10">
+                                            <h4>Side</h4>
+                                            <input class="calc-radio" id="single-side" type="radio" name="side" disabled>
+                                            <label for="single-side">Single Side</label>
+                                            <input class="calc-radio" id="two-side" type="radio" name="side" disabled>
+                                            <label for="two-side">Two Side</label>
+                                        </div>
+                                        <!-- Side EOF -->
+                                    </div>
+                                </div>
+                                <!-- Color & Side WRAP EOF -->
+                                <!-- Binding Option & No. of Pages WRAP BEGIN -->
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <!-- Binding Option BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row">
+                                            <h4>Binding Options</h4>
+                                            <label for="binding-option">
+                                                <select class="calc-select" id="binding-option" name="binding-option">
+                                                    <option value="one">Comb Bound</option>
+                                                    <option value="two">No Comb Bound</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <!--Binding Option EOF -->
+                                        <!-- No. of Pages BEGIN -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row">
+                                            <h4>No. of Pages</h4>
+                                            <!--<label for="no-of-pages"><input id="no-of-pages" type="number"></label>-->
+                                            <div class="quantity">
+                                                <span class="quantity-down quantity-field"><i class="icon-minus"></i></span>
+                                                <input class="quantity-field" type="number" min="1" max="9" step="1" value="1">
+                                                <span class="quantity-up quantity-field"><i class="icon-plus"></i></span>
+                                            </div>
+                                        </div>
+                                        <!-- No. of Pages EOF -->
+                                    </div>
+                                </div>
+                                <!-- Binding Option & No. of Pages WRAP EOF -->
+                                <!-- Quantity BEGIN -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row">
+                                    <h4>Quantity</h4>
+                                    <div class="quantity">
+                                        <span class="quantity-down quantity-field"><i class="icon-minus"></i></span>
+                                        <input class="quantity-field" type="number" min="1" max="9" step="1" value="1">
+                                        <span class="quantity-up quantity-field"><i class="icon-plus"></i></span>
+                                    </div>
+                                </div>
+                                <!-- Quantity EOF -->
+                                <!-- Price BEGIN -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 calc-row">
+                                    <h4 style="visibility: hidden" class="hidden-xs">Price</h4>
+                                    <h3 class="calc-price">Price: <span>$ 0.0</span></h3>
+                                </div>
+                                <!-- Price EOF -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PRICE CALCULATOR EOF -->
+
+<!-- TESTIMONIALS BEGIN -->
+<section class="container-fluid testimonials">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-center">Testimonials</h2>
+                </div>
+                <!-- TESTIMONIALS SLIDER BEGIN -->
+                <div class="col-lg-12 slider text-center">
+                    <!-- SLIDE 1 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-2.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 1 EOF -->
+                    <!-- SLIDE 2 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 2 EOF -->
+                    <!-- SLIDE 3 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-1.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 3 EOF -->
+                    <!-- SLIDE 4 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-2.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 4 EOF -->
+                    <!-- SLIDE 5 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-2.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 5 EOF -->
+                    <!-- SLIDE 6 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-2.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 6 EOF -->
+                    <!-- SLIDE 7 BEGIN -->
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="testimonial-slider-block">
+                            <div class="testimonial-img">
+                                <img src="img/testimonial-pic-2.png" alt="">
+                            </div>
+                            <p>
+                            <h4>Diana Way</h4>
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                consequuntur.
+                            </p>
+                            <div class="testimonial-line"></div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 7 EOF -->
+                </div>
+                <!-- TESTIMONIALS SLIDER BEGIN -->
+                <div class="col-xs-12 text-center">
+                    <button class="btn-art">make an order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- TESTIMONIALS EOF -->
+<!-- CONTENT EOF -->
+
+<!-- FOOTER BEGIN -->
+<footer class="container-fluid footer">
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <div class="footer-logo">
+                        <img src="img/logo.svg" alt="Logo">
+                        <p>
+                            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                            ex
+                            ea commodi consequatur. Quis autem vel eum iure reprehenderit qui.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-lg-offset-1 footer-internal-links">
+                    <h3>Internal Links</h3>
+                    <ul>
+                        <li><a href="">About Print</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Pickup Locations</a></li>
+                        <li><a href="">Teams and Conditions</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="footer-print">
+                        <h4>Print</h4>
+                        <p>Almurabba District, King Faisal Road, Riyadh
+                            P.O.Box 7150, Riyadh 11462, KSA</p>
+                        <p>For Suggestions and Complaints, you can reach us via WhatsApp +966509050803</p>
+                        <ul class="footer-social">
+                            <li><a href="" class="icon-facebook"></a></li>
+                            <li><a href="" class="icon-twitter"></a></li>
+                            <li><a href="" class="icon-youtube"></a></li>
+                            <li><a href="" class="icon-linkedin"></a></li>
+                            <li><a href="" class="icon-instagram"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 text-center footer-copy">
+                    <span>© Copyright 2017 Printing Store. All rights reserved. <a href="">Privacy Policy.</a></span>
+                    <span class="footer-designed"><span class="text-yellow">Designed</span> <a href="http://celerart.com">by Celerart</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- FOOTER EOF -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/typed.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

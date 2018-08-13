@@ -4,7 +4,7 @@
         <ul class="pagination">
             <li class="" v-on:click="back()"><span> << </span></li>
             <li v-for="page in pages" v-bind:class="{ active: page==currentPage }" v-on:click="setPage(page)">
-                <a :href="'#/admin/vue?page='+page" v-text="page"></a></li>
+                <a  v-on:click="setPage(page)" v-text="page"></a></li>
             <li  v-on:click="next()"><a  rel="next"> >>  </a></li>
 
         </ul>

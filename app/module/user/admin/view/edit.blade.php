@@ -7,7 +7,7 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <!-- .row -->
-            <div class="row bg-title" style="background:url({{'/assets/'.config('project.layoutAssetsFolder')}}/plugins/images/heading-title-bg.jpg) no-repeat center center /cover;">
+            <div class="row bg-title" style="background:url({{asset('/assets/admin/plugins/images/heading-title-bg.jpg')}}) no-repeat center center /cover;">
                 <div class="col-lg-12">
                     <h4 class="page-title">{{ trans('general.user') }}</h4>
                 </div>
@@ -76,6 +76,14 @@
 
 
 
+                                        <div class="row">
+                                            <div class="form-group  col-xs-6">
+
+                                                <iframe src="/general/upload_file?template=returnImageUrl&return_to_field=avatar&image_url={{$user->avatar}}" style="border:none;padding:0px;margin:0px;"></iframe>
+
+
+                                            </div>
+                                        </div>
 
                                                                                 
                                         <div class="row">

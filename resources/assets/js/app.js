@@ -9,6 +9,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -21,43 +24,48 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 
-import vue_routes  from '../../../app/module/vue/admin/view/vue/route.js';
-let router=  new VueRouter({ routes:vue_routes.concat([])});
+import vue_routes  from '@module/vue/vue/route';
+import project_routes  from '@module/project/vue/route';
+let router=  new VueRouter({ routes:vue_routes.concat(project_routes)});
 
 
 
+import Notifications from 'vue-notification'
 
 
-
-
+Vue.use(Notifications)
 
 
 Vue.component('pagination', require('./helper/pagination'));
 
+Vue.filter('translate', function (value) {
 
-
-
-
-const app = new Vue({
-    //el: '#wrprojecter',
-    el: '#class1',
-    data:{
-        message:'my message',
-
-    },
-    router:router,
-    //router:router2
-
+    return translate(value);
 });
 
-const app2 = new Vue({
-    //el: '#wrprojecter',
-    el: '#class2',
-    data:{
-        message:'my message',
 
-    },
-    //router:router2
-    router:router,
 
+Vue.filter('can', function (value) {
+
+    return can(value);
 });
+
+
+var app = null;
+import ServerDataInit from '@resource/setting/ServerDataInit'
+function initApp(serverInitData){
+
+   new ServerDataInit(serverInitData);
+
+     app = new Vue({
+        el: '#mainAppContainer',
+        router:router,
+    });
+
+}
+
+
+import ApiBase from '@resource/api/ApiBase'
+
+
+new ApiBase().get('/admin/get_setting/',{},initApp) ;

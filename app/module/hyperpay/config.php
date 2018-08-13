@@ -1,0 +1,18 @@
+<?php
+return [
+    'HYPERPAY_URL' => env('HYPERPAY_URL','https://test.oppwa.com/v1/checkouts'),
+    'HYPERPAY_USER_ID' => env('HYPERPAY_USER_ID', '8a8294175a8ed804015aa4b6e2f72343'),
+    'HYPERPAY_PASSWORD' => env('HYPERPAY_PASSWORD', 'PPy2jrmrCx'),
+    'HYPERPAY_ENTITY_ID' => env('HYPERPAY_ENTITY_ID', '8a8294185a8ee61b015aa4b7b8e91f18'),
+    'HYPERPAY_CURRENCY' => env('HYPERPAY_CURRENCY', 'USD'),
+    'HYPERPAY_PAYMENT_TYPE' => env('HYPERPAY_PAYMENT_TYPE', 'DB'),
+    'HYPERPAY_TEST' => env('HYPERPAY_TEST', True),
+    'HYPERPAY_SUCCESS_CHECKOUT_CREATE_CODE'=>'000.200.100',
+    'HYPERPAY_SUCCESS_STATUS' => [
+        '000.100.112',
+        '000.100.111',
+        '000.100.110',
+        '000.000.100',
+        '000.000.000',
+    ]
+];

@@ -2,10 +2,14 @@
 
 //use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    use SoftDeletes;
+
     protected $fillable = [
         "id","email","guest_email","password","android_device_id","ios_device_id","last_login","first_name","last_name","birth_day","avatar","phone","mobile","area_id","country","address","gender","occupation","type","token","session_id","lat","long","created_at","updated_at"    ];
     protected $table='user';
@@ -23,7 +27,7 @@ class User extends Authenticatable
         return $this->hasMany('App\module\role\model\RoleUser');
     }
 
-    public function role_list(){
+        public function role_list(){
         $oRoleList=$this->role_user()->with('role')->get();
         $aRoleList=[];
         if(count($oRoleList)) {

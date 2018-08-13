@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/word',function(){
+Route::get('/word',function(){ file_put_contents(base_path('public/vue_translation.js') ,'var translationList='.json_encode(getModuleSeedFile('en')));
 
     $resultCollection=\App\module\translation\model\Translation::where('created_at','>=',now()->subDay(4))->get();
 

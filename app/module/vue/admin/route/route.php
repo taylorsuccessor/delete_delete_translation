@@ -2,6 +2,7 @@
 Route::group(['middleware' => ['authorization'],'prefix' => 'admin','as'=>'admin.', 'namespace' => '\App\module\vue\admin\controller'], function () {
 
     Route::resource('vue','Vue');
+    Route::get('/get_setting','Vue@getSetting');
 
 
 });

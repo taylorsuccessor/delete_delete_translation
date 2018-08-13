@@ -92,11 +92,20 @@ if (!function_exists('canAccess')) {
 
 
 if (!function_exists('notification')) {
-	function notification($name, $data)
-	{
+    function notification($name, $data)
+    {
 
-		$notification = new \App\module\notification\admin\controller\SendNotification;
-		$notification->send($name, $data);
-	}
+        $notification = new \App\module\notification\admin\controller\SendNotification;
+        $notification->send($name, $data);
+    }
+}
+
+if (!function_exists('assetImage')) {
+    function assetImage($image)
+    {
+        //__/images/base_image.png
+        //____/assets/admin/img/user_icon.jpg
+return $image;
+    }
 }
 

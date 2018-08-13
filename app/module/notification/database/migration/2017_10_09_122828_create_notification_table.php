@@ -30,6 +30,7 @@ class CreateNotificationTable extends Migration
             $table->text('body')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
 
 //        Schema::table('role', function (Blueprint $table) {

@@ -25,6 +25,11 @@ class EventServiceProvider extends ServiceProvider
         'App\module\car\event\Delete' =>[
             'App\module\car\listener\NotificationDelete'
         ],
+
+
+        'App\module\hyperpay\event\Edit' =>[
+            'App\module\hyperpay\listener\NotificationEdit'
+        ],
     ];
 
     /**

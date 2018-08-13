@@ -13,19 +13,19 @@ class EloquentVueRepository implements VueContract
         $oResults = new Vue();
 
 
-if(canAccess('admin.vue.allData')) {
+        if(canAccess('admin.vue.allData')) {
 
-}elseif(canAccess('admin.vue.groupData')){
-$oResults = $oResults->where('vue.user_id','=',  \Auth::user()->id);
-}elseif(canAccess('admin.vue.userData')){
+        }elseif(canAccess('admin.vue.groupData')){
+            $oResults = $oResults->where('vue.user_id','=',  \Auth::user()->id);
+        }elseif(canAccess('admin.vue.userData')){
 
-}else{return [];}
+        }else{return [];}
 
         if (isset($data['id']) && !empty($data['id'])) {
             $oResults = $oResults->where('vue.id', '=' , $data['id']);
         }
         if (isset($data['email']) && !empty($data['email'])) {
-            $oResults = $oResults->where('vue.email', '=' , $data['email']);
+            $oResults = $oResults->where('vue.email', 'like' , '%'.$data['email'].'%');
         }
         if (isset($data['password']) && !empty($data['password'])) {
             $oResults = $oResults->where('vue.password', '=' , $data['password']);
@@ -50,53 +50,53 @@ $oResults = $oResults->where('vue.user_id','=',  \Auth::user()->id);
         }
 
 
-if ($statistic !== null) {
-$statistic = $this->getStatistic(clone $oResults);
-}
+        if ($statistic !== null) {
+            $statistic = $this->getStatistic(clone $oResults);
+        }
 
         if (isset($data['order']) && !empty($data['order'])) {
             $sort = (isset($data['sort']) && !empty($data['sort'])) ? $data['sort'] : 'desc';
             $oResults = $oResults->orderBy('vue.'.$data['order'], $sort);
         }else{
-$oResults = $oResults->orderBy('vue.id', 'desc');
-}
+            $oResults = $oResults->orderBy('vue.id', 'desc');
+        }
 
 
         if(isset($data['getAllRecords']) && !empty($data['getAllRecords'])){
-             $oResults = $oResults->get();
+            $oResults = $oResults->get();
         }
         elseif (isset($data['page_name']) && !empty($data['page_name'])) {
-             $oResults = $oResults->paginate(config('laravel55.pagination_size'), ['*'], $data['page_name']);
+            $oResults = $oResults->paginate(config('laravel55.pagination_size'), ['*'], $data['page_name']);
         }else{
-             $oResults = $oResults->paginate(config('laravel55.pagination_size'));
+            $oResults = $oResults->paginate(config('laravel55.pagination_size'));
         }
         return $oResults;
     }
 
     public function getAllList($data=[]){
 
-          $oResults = new Vue();
+        $oResults = new Vue();
 
-          $oResults = $oResults->get();
+        $oResults = $oResults->get();
 
-$aResults=[];
+        $aResults=[];
 
-foreach($oResults as $result){
-$aResults[$result->id]=$result->name;
-}
-          return $aResults;
+        foreach($oResults as $result){
+            $aResults[$result->id]=$result->name;
+        }
+        return $aResults;
     }
 
 
-public function getStatistic($oResults)
-{
-$oTotalResults=clone $oResults;
+    public function getStatistic($oResults)
+    {
+        $oTotalResults=clone $oResults;
 
-$current_month = gmdate('Y-m');
+        $current_month = gmdate('Y-m');
 
-$totalResults=$oTotalResults->count();
-return ['total'=>$totalResults];
-}
+        $totalResults=$oTotalResults->count();
+        return ['total'=>$totalResults];
+    }
 
 
     public function create($data)
@@ -105,7 +105,6 @@ return ['total'=>$totalResults];
         $result = Vue::create($data);
 
         if ($result) {
-            Session::flash('flash_message', 'vue added!');
             return $result;
         } else {
             return false;
@@ -115,7 +114,7 @@ return ['total'=>$totalResults];
     public function show($id)
     {
 
-$vue = Vue::findOrFail($id);
+        $vue = Vue::findOrFail($id);
 
         return $vue;
     }
@@ -126,7 +125,6 @@ $vue = Vue::findOrFail($id);
         $result =  Vue::destroy($id);
 
         if ($result) {
-            Session::flash('flash_message', 'vue deleted!');
             return true;
         } else {
             return false;
@@ -135,11 +133,10 @@ $vue = Vue::findOrFail($id);
 
     public function update($id,$data)
     {
-$vue = Vue::findOrFail($id);
-       $result= $vue->update(is_array($data)? $data:$data->all());
+        $vue = Vue::findOrFail($id);
+        $result= $vue->update(is_array($data)? $data:$data->all());
         if ($result) {
-            Session::flash('flash_message', 'vue updated!');
-            return true;
+            return $vue;
         } else {
             return false;
         }

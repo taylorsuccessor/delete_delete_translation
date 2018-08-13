@@ -10,6 +10,8 @@
 '6'=>' admin',
 '7'=>'role',
 '8'=>'edit_config',
+'9'=>'general',
+'10'=>'api',
 ],
 '1'=>[
 '0'=>'category',
@@ -76,6 +78,12 @@
 '61'=>'bag_name_test',
 '62'=>'vue',
 '63'=>'layout',
+'64'=>'user_notification',
+'65'=>'hyperpay',
+'66'=>'upload_file',
+'67'=>'system_localization',
+'68'=>'project',
+'69'=>'get_setting',
 ],
 '2'=>[
 '0'=>'create',
@@ -101,6 +109,7 @@
 '20'=>'emailorder',
 '21'=>'update',
 '22'=>'login',
+'23'=>'mark_as_reead',
 ],
 '3'=>[
 ],

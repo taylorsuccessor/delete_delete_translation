@@ -4,11 +4,11 @@
       <!-- .Logo -->
       <div class="top-left-part"><a class="logo" href="/">
         <!--This is logo icon-->
-        <img src="/assets/website/images/whiteLogoPart.png" alt="home" class="light-logo" style="width:30px;height:30px;" /></a></div>
+        <img src="{{asset('/assets/website/images/whiteLogoPart.png')}}" alt="home" class="light-logo" style="width:56px;height:50px;" /></a></div>
          <ul class="nav navbar-top-links navbar-left hidden-xs">
            <li><a href="javascript:void(0)" class="logotext">
              <!--This is logo text-->
-             <img src="/assets/website/images/whiteLogo.png" style="max-width:100px;" alt="home" class="light-logo" alt="home" /></a></li>
+             <img src="{{asset('/assets/website/images/whiteLogo.png')}}" style="max-width:100px;" alt="home" class="light-logo" alt="home" /></a></li>
          </ul>
       <!-- /.Logo -->
       <!-- top right panel -->
@@ -20,14 +20,12 @@
 
 
 
-
-
 @inject('notificationClass','\App\module\layout\admin\controller\Notification')
 
 
-@if(canAccess('admin.service_company_order.index'))
+@if(canAccess('admin.user_notification.index'))
 <?php $notificationList=$notificationClass->getNotificationList(); ?>
-        <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-user"></i>
+        <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-bell"></i>
           <div class="@if(count($notificationList) ) notify @endif"><span class="heartbit"></span><span class="point"></span></div>
           </a>
           <ul class="dropdown-menu mailbox animated bounceInDown">
@@ -39,7 +37,9 @@
 
              @foreach($notificationList as $notification)
               <a href="{{$notification['link']}}">
-                <div class="user-img"> <img src="{{$notification['img']}}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                <div class="user-img">
+                    <i class="{{$notification['img']}}"></i>
+                    <span class="profile-status @if(!$notification['is_read'] ) online @endif  pull-right"></span> </div>
                 <div class="mail-contnet">
                   <h5> {{$notification['title']}} </h5>
                   <span class="mail-desc">{{$notification['description']}} </span> <span class="time">{{$notification['date']}}</span> </div>
@@ -48,7 +48,7 @@
 
                  </div>
             </li>
-            <li> <a class="text-center" href="/admin/service_company_order?notification=0"> <strong>See all notification</strong> <i class="fa fa-angle-right"></i> </a></li>
+            <li> <a class="text-center" href="{{route('admin.user_notification.mark_as_reead')}}"> <strong>{{trans('general.clearNotification')}}</strong> <i class="fa fa-angle-right"></i> </a></li>
           </ul>
           <!-- /.dropdown-messages -->
         </li>
@@ -84,7 +84,7 @@
         </li>
         <!-- /.dropdown -->
         <!-- .dropdown -->
-        <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="/assets/admin/img/user_icon.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"> {{\Auth::user()->first_name}}</b> </a>
+        <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{assetImage(\Auth::user()->avatar)}}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"> {{\Auth::user()->first_name}}</b> </a>
           <ul class="dropdown-menu dropdown-user animated flipInY">
 {{--            <li><a href="{{ route('client.users.profile') }}"><i class="ti-user"></i> {{ trans('general.Profile') }}</a></li>--}}
 {{--            <li><a href=" {{ route('client.users.changePassword') }}"><i class="ti-lock "></i>{{ trans('general.changePassword') }}</a></li>--}}
