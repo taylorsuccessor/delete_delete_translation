@@ -6,12 +6,12 @@
 
                 <div class="row bg-title" style="background:url(/assets/admin/plugins/images/heading-title-bg.jpg) no-repeat center center /cover;">
                     <div class="col-lg-12">
-                        <h4 class="page-title">Vue</h4>
+                        <h4 class="page-title">{{'project' |translate}}</h4>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
                         <ol class="breadcrumb pull-left">
-                            <li><a href="#">Vue</a></li>
-                            <li class="active">Vue Create</li>
+                            <li><a href="#">{{'project' |translate}}</a></li>
+                            <li class="active">{{'project' |translate}} {{'create' |translate}}</li>
                         </ol>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
@@ -63,7 +63,7 @@
 
                                         <div class="panel">
                                             <div class="panel-heading">
-                                                <span class="panel-title">Add Vue</span>
+                                                <span class="panel-title">{{'project' |translate}}</span>
                                             </div>
 
                                             <div class="panel-body">
@@ -77,7 +77,7 @@
                                                     <label for="user_id" class="col-sm-4 control-label">{{'user_id' |translate}}</label>
 
                                                     <div class="col-sm-8">
-                                                        <input name="user_id" type="text" value="" v-model="data.user_id" class="form-control">
+                                                        <input name="user_id" type="text" value="" v-model="model.user_id" class="form-control">
                                                         <p class="help-block" v-for="error in errors.user_id" v-text="error"></p>
 
                                                     </div>
@@ -88,7 +88,7 @@
                                                     <label for="name" class="col-sm-4 control-label">{{'name' |translate}}</label>
 
                                                     <div class="col-sm-8">
-                                                        <input name="name" type="text" value="" v-model="data.name" class="form-control">
+                                                        <input name="name" type="text" value="" v-model="model.name" class="form-control">
                                                         <p class="help-block" v-for="error in errors.name" v-text="error"></p>
 
                                                     </div>
@@ -99,7 +99,7 @@
                                                     <label for="from_language" class="col-sm-4 control-label">{{'from_language' |translate}}</label>
 
                                                     <div class="col-sm-8">
-                                                        <input name="from_language" type="text" value="" v-model="data.from_language" class="form-control">
+                                                        <input name="from_language" type="text" value="" v-model="model.from_language" class="form-control">
                                                         <p class="help-block" v-for="error in errors.from_language" v-text="error"></p>
 
                                                     </div>
@@ -110,7 +110,7 @@
                                                     <label for="to_language" class="col-sm-4 control-label">{{'to_language' |translate}}</label>
 
                                                     <div class="col-sm-8">
-                                                        <input name="to_language" type="text" value="" v-model="data.to_language" class="form-control">
+                                                        <input name="to_language" type="text" value="" v-model="model.to_language" class="form-control">
                                                         <p class="help-block" v-for="error in errors.to_language" v-text="error"></p>
 
                                                     </div>
@@ -121,7 +121,7 @@
                                                     <label for="status" class="col-sm-4 control-label">{{'status' |translate}}</label>
 
                                                     <div class="col-sm-8">
-                                                        <input name="status" type="text" value="" v-model="data.status" class="form-control">
+                                                        <input name="status" type="text" value="" v-model="model.status" class="form-control">
                                                         <p class="help-block" v-for="error in errors.status" v-text="error"></p>
 
                                                     </div>
@@ -168,11 +168,12 @@
 <script>
 
     import service from '@module/project/vue/service/service';
+    import User from '@resource/user/User';
 
     export default{
         data(){
             return {
-                data:{},
+                model:{},
                 errors:{}
             }
         },
@@ -185,12 +186,12 @@
             submit(){
                 var oService=new service();
                 oService.errorCallback=this.postError;
-                oService.post(this.data,this.postResult);
+                oService.post(this.model,this.postResult);
 
             },
             postResult(response){
 
-                this.data=response;
+                this.model=response;
 
                 this.errors={};
                 notification(this,translate('createdSuccessfully'));

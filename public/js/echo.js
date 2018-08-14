@@ -929,5 +929,3 @@ var Echo = function () {
     }]);
     return Echo;
 }();
-
-module.exports = Echo;

@@ -36,13 +36,13 @@
               <div class="message-center">
 
              @foreach($notificationList as $notification)
-              <a href="{{$notification['link']}}">
+              <a href="{{$notification['url']}}">
                 <div class="user-img">
                     <i class="{{$notification['img']}}"></i>
                     <span class="profile-status @if(!$notification['is_read'] ) online @endif  pull-right"></span> </div>
                 <div class="mail-contnet">
                   <h5> {{$notification['title']}} </h5>
-                  <span class="mail-desc">{{$notification['description']}} </span> <span class="time">{{$notification['date']}}</span> </div>
+                  <span class="mail-desc">{{$notification['body']}} </span> <span class="time">{{$notification['created_at']}}</span> </div>
                 </a>
                 @endforeach
 

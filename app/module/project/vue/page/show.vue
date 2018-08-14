@@ -11,8 +11,8 @@
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
                         <ol class="breadcrumb pull-left">
-                            <li><a href="#">Vue</a></li>
-                            <li class="active">Vue Create</li>
+                            <li><a href="#">{{'project' |translate}}</a></li>
+                            <li class="active">{{'project' |translate}}</li>
                         </ol>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
@@ -36,8 +36,8 @@
 
                     <div class="col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0">Vue</h3>
-                            <p class="text-muted m-b-40">Vue</p>
+                            <h3 class="box-title m-b-0">{{'project' |translate}}</h3>
+                            <p class="text-muted m-b-40">{{'project' |translate}}</p>
 
 
                             <ul class="nav nav-tabs" role="tablist">
@@ -63,7 +63,7 @@
 
                                     <div class="panel">
                                         <div class="panel-heading">
-                                            <span class="panel-title">Add Vue</span>
+                                            <span class="panel-title">{{'project' |translate}}</span>
                                         </div>
 
                                         <div class="panel-body">
@@ -201,6 +201,7 @@
 
 <script>
     import service from '@module/project/vue/service/service';
+    import User from '@resource/user/User';
 
     export default{
         data(){
@@ -210,7 +211,7 @@
             }
         },
         created(){
-            Echo.private('App.User.1').listen('.App\\module\\project\\event\\Edit', (e) => {
+            Echo.private('App.User.'+User.user.id).listen('.App\\module\\project\\event\\Edit', (e) => {
 
                 this.model=e.newModel;
 

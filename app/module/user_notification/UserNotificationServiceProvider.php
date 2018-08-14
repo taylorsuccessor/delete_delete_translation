@@ -16,7 +16,7 @@ class UserNotificationServiceProvider extends ServiceProvider
         $this->bootRoute();
         $this->bootView();
         $this->bootLang();
-     //   $this->bootConfig();//I add module config file and merge data from register method
+        //   $this->bootConfig();//I add module config file and merge data from register method
 
     }
 
@@ -24,6 +24,7 @@ class UserNotificationServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
 
             require __DIR__.'/admin/route/route.php';
+            require __DIR__.'/api/route/route.php';
         }
     }
 
@@ -31,6 +32,7 @@ class UserNotificationServiceProvider extends ServiceProvider
     public function bootView(){
 
         $this->loadViewsFrom(__DIR__.'/admin/view', 'admin.user_notification');
+        $this->loadViewsFrom(__DIR__.'/api/view', 'api.user_notification');
 
 //        $this->publishes([
 //            __DIR__.'/path/to/views' => base_path('resources/views/vendor/courier'),
@@ -70,20 +72,20 @@ class UserNotificationServiceProvider extends ServiceProvider
         $this->registerRepository();
 
 
-$this->registerFactory();
-$this->registerMigration();
+        $this->registerFactory();
+        $this->registerMigration();
 
-}
+    }
 
-public function registerMigration(){
-$this->loadMigrationsFrom(base_path('app/module/user_notification/database/migration'));
-}
+    public function registerMigration(){
+        $this->loadMigrationsFrom(base_path('app/module/user_notification/database/migration'));
+    }
 
-public function registerFactory()
-{
-$this->app->make('Illuminate\Database\Eloquent\Factory')->load(base_path('app/module/user_notification/database/factory'));
+    public function registerFactory()
+    {
+        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(base_path('app/module/user_notification/database/factory'));
 
-}
+    }
 
     /**
      * Register bindings in the container.
@@ -98,17 +100,25 @@ $this->app->make('Illuminate\Database\Eloquent\Factory')->load(base_path('app/mo
     }
 
 
-public function registerRepository(){
+    public function registerRepository(){
 
-    $this->app->bind(
-    'App\module\user_notification\admin\repository\UserNotificationContract',
-    'App\module\user_notification\admin\repository\EloquentUserNotificationRepository'
-    );
-
-
+        $this->app->bind(
+            'App\module\user_notification\admin\repository\UserNotificationContract',
+            'App\module\user_notification\admin\repository\EloquentUserNotificationRepository'
+        );
 
 
-}
+
+
+        $this->app->bind(
+            'App\module\user_notification\api\repository\UserNotificationContract',
+            'App\module\user_notification\api\repository\EloquentUserNotificationRepository'
+        );
+
+
+
+
+    }
 
 
 

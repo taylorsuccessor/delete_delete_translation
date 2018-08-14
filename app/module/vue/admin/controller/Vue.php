@@ -143,7 +143,13 @@ class Vue extends Controller
     public function getSetting(){
 
 
-        return new JsonResponse(['user'=>'success slkdfjsdf87dsf'],200);
+        return new JsonResponse([
+            'user'=>\Auth::user(),
+            'deny_permission'=>session('deny_permission'),
+            'allow_permission'=>session('allow_permission'),
+            'locale'=>session('locale'),
+//            'csrf_token'=>csrf_token()
+        ],200);
     }
 
 }

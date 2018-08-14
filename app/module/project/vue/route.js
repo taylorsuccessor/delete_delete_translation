@@ -1,4 +1,4 @@
-
+require('@resource/authorization/Authorization');
 const route = [
     { path: '/vue/project', component: require('./page/index') ,name:'vue.project.index',beforeEnter:authorization},
     { path: '/vue/project/create', component: require('./page/create') ,name:'vue.project.create'},

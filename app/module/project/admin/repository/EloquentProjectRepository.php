@@ -110,7 +110,7 @@ class EloquentProjectRepository implements ProjectContract
 
         if ($result) {
             Session::flash('flash_message', trans('general.rowAddedSuccessfully'));
-           // event(new eCreate($result));
+           event(new eCreate($result));
             return $result;
         } else {
             return false;
@@ -133,7 +133,7 @@ class EloquentProjectRepository implements ProjectContract
 
         if ($result) {
             Session::flash('flash_message', trans('general.rowDeletedSuccessfully'));
-          //  event(new eDelete($old));
+          event(new eDelete($old));
             return true;
         } else {
             return false;
@@ -150,8 +150,8 @@ class EloquentProjectRepository implements ProjectContract
         if ($result) {
             Session::flash('flash_message', trans('general.rowUpdatedSuccessfully') );
 
-           // event(new eEdit($oldModel,$model));
-            return true;
+           event(new eEdit($oldModel,$model));
+            return $model;
         } else {
             return false;
         }

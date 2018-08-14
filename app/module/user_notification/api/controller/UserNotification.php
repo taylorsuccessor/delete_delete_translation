@@ -1,6 +1,6 @@
 <?php
 
-namespace App\module\project\api\controller;
+namespace App\module\user_notification\api\controller;
 
 
 use App\Http\Requests;
@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 
 
 use Illuminate\Http\Request;
-use App\module\project\api\request\createRequest;
-use App\module\project\api\request\editRequest;
+use App\module\user_notification\api\request\createRequest;
+use App\module\user_notification\api\request\editRequest;
 use Session;
 use Illuminate\Http\JsonResponse;
 
@@ -17,18 +17,18 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 
-use App\module\project\model\Project as mProject;
-use App\module\project\api\repository\ProjectContract as rProject;
+use App\module\user_notification\model\UserNotification as mUserNotification;
+use App\module\user_notification\api\repository\UserNotificationContract as rUserNotification;
 
     use App\module\user\api\repository\UserContract as rUser;
     
-class Project extends Controller
+class UserNotification extends Controller
 {
-    private $rProject;
+    private $rUserNotification;
 
-    public function __construct(rProject $rProject)
+    public function __construct(rUserNotification $rUserNotification)
     {
-        $this->rProject=$rProject;
+        $this->rUserNotification=$rUserNotification;
     }
 
     /**
@@ -36,43 +36,30 @@ class Project extends Controller
     *
     * @return view as response
     */
-    public function index(Request $request)
-    {
+    public function index(){
+        $userNotificationResults= mUserNotification::where('user_id','=',\Auth::user()->id)
+            ->where('is_read','=',false)
+            ->orderBy('id','desc')->limit(7)->get();
 
-        $statistic=null;
-        $oResults=$this->rProject->getByFilter($request,$statistic);
+        $userNotificationList=[];
+
+        foreach($userNotificationResults as $userNotification){
 
 
-        $aResults=[];
+            $userNotificationList[]=[
+                'title'=>$userNotification->title,
+                'url'=>$userNotification->url,
+                'img'=>'',
+                'body'=>$userNotification->body,
+                'created_at'=>$userNotification->created_at,
+                'is_read'=>$userNotification->is_read,
 
-        if(count($oResults)){
-                foreach($oResults as $oResult){
-    $aResults[]=[
-
-    'id'=>  $oResult->id,
-
-    'user_id'=>  $oResult->user_id,
-
-    'name'=>  $oResult->name,
-
-    'from_language'=>  $oResult->from_language,
-
-    'to_language'=>  $oResult->to_language,
-
-    'status'=>  $oResult->status,
-
-    'created_at'=>  $oResult->created_at,
-
-    'updated_at'=>  $oResult->updated_at,
-
-                        ];
+            ];
         }
+
+        return $userNotificationList;
     }
 
-    return new JsonResponse(['results'=>$aResults,'count'=>$oResults->total(),'statistic'=>$statistic,'per_page'=>15],200,[],JSON_UNESCAPED_UNICODE);
-
-
-    }
 
     /**
     * Show the form for creating a new resource.
@@ -84,7 +71,7 @@ class Project extends Controller
 
             $userList=$rUser->getAllList();
     
-        return view('api.project::create',compact('request','userList'));
+        return view('api.user_notification::create',compact('request','userList'));
     }
 
     /**
@@ -96,7 +83,7 @@ class Project extends Controller
     {
 
 
-        $oResults=$this->rProject->create($request->all());
+        $oResults=$this->rUserNotification->create($request->all());
 
 
 
@@ -115,18 +102,18 @@ class Project extends Controller
     {
 
 
-        $model=$this->rProject->show($id);
+        $model=$this->rUserNotification->show($id);
 
 
                     return new JsonResponse(['status'=>'success','model'=>$model],200,[],JSON_UNESCAPED_UNICODE);
         
 
 
-        $request->merge(['project_id'=>$id,'page_name'=>'page']);
+        $request->merge(['user_notification_id'=>$id,'page_name'=>'page']);
 
 
     
-        return view('api.project::show', compact('model','request'));
+        return view('api.user_notification::show', compact('model','request'));
     }
 
     /**
@@ -140,11 +127,11 @@ class Project extends Controller
     {
 
 
-        $project=$this->rProject->show($id);
+        $user_notification=$this->rUserNotification->show($id);
 
 
             $userList=$rUser->getAllList();
-            return view('api.project::edit', compact('project','userList'));
+            return view('api.user_notification::edit', compact('user_notification','userList'));
     }
 
     /**
@@ -157,7 +144,7 @@ class Project extends Controller
     public function update($id, editRequest $request)
     {
 
-        $result=$this->rProject->update($id,$request);
+        $result=$this->rUserNotification->update($id,$request);
 
 
         
@@ -174,7 +161,7 @@ class Project extends Controller
     */
     public function destroy($id,Request $request)
     {
-        $project=$this->rProject->destroy($id);
+        $user_notification=$this->rUserNotification->destroy($id);
 
 
         

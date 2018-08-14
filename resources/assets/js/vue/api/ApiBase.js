@@ -1,3 +1,5 @@
+import Authorization from "@resource/authorization/Authorization";
+
 export default class ApiBase  {
 
     setAxiosDefault(){
@@ -10,7 +12,7 @@ export default class ApiBase  {
     constructor() {
 
          this.requestConfig={
-             baseURL:'http://localhost:8000/',
+             baseURL:process.env.MIX_API_URL,
              url:'',
              method:'get',
              params:{},

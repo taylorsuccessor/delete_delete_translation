@@ -67,7 +67,7 @@ var pageUrl=window.location.pathname;
 var pageUrlArray=pageUrl.split('/');
 
 var firstUrlPart='/'+pageUrlArray[1];
-var secondUrlPart='/'+pageUrlArray[1]+'/'+pageUrlArray[2];console.log(pageUrl,pageUrlArray,firstUrlPart,secondUrlPart);
+var secondUrlPart='/'+pageUrlArray[1]+'/'+pageUrlArray[2];
     var currentA=$('.sidebar-menu a.active');
 
 if(currentA.length == 0){

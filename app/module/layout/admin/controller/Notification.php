@@ -17,10 +17,10 @@ class Notification{
 
             $userNotificationList[]=[
                 'title'=>$userNotification->title,
-                'link'=>$userNotification->url,
+                'url'=>$userNotification->url,
                 'img'=>$this->selectNotificationIcon($userNotification),
-                'description'=>$userNotification->body,
-                'date'=>$userNotification->created_at,
+                'body'=>$userNotification->body,
+                'created_at'=>$userNotification->created_at,
                 'is_read'=>$userNotification->is_read,
 
             ];

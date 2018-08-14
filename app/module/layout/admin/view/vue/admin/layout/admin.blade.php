@@ -11,6 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - Laravel</title>
     <!-- Bootstrap Core CSS -->
+
+
+ {{--Html::style('/delete_test.css') !!}--}}
 {!! Html::style('/assets/admin/bootstrap/dist/css/bootstrap.min.css') !!}
 
 {!! Html::style('/assets/admin/plugins/bower_components/tablesaw-master/dist/tablesaw.css') !!}
@@ -30,7 +33,32 @@
 {!! Html::style('/assets/admin/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css')!!}
 
 
+    <style type="text/css">
+        .vue-notification {
+            padding: 10px;
+            margin: 0 5px 5px;
 
+            font-size: 12px;
+
+            color: #ffffff;
+            background: #64c1b6;
+            border-left: 5px solid #129a8a;
+            display:none;
+        }
+        .vue-notification.warn {
+            background: #ffb648;
+            border-left-color: #f48a06;
+        }
+        .vue-notification.error {
+            background: #E54D42;
+            border-left-color: #B82E24;
+        }
+        .vue-notification.success {
+            background: #68CD86;
+            border-left-color: #42A85F;
+        }
+
+    </style>
 
 <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,13 +80,12 @@
 
 
 
-    @include('admin.layout::partial.header')
-    @include('admin.layout::partial.menu')
 
     <div class="myClass" id="mainAppContainer">
+        <main-menu></main-menu>
+        <app-header></app-header>
         <router-view></router-view>
 
-        @include('admin.layout::vue.admin.layout.partial.notification')
     </div>
 
 </div>
@@ -68,57 +95,38 @@
     <!-- jQuery -->
     {!! Html::script('/js/vue_translation/'.session('locale').'.js') !!}
 
+
     <script >
 
-        var initData=null;
-        var allow_permission='|{!! session('allow_permission') !!}';
-        var deny_permission='|{!! session('deny_permission') !!}';
-
-
-        function checkIfPermissionMatch(onePermissionToCheck,allUserPermission) {
-
-
-            var roleArray = new Array();
-            roleArray = onePermissionToCheck.split('.');
-
-            var rolePattern = roleArray.join('|\\*)\\.(')
-            rolePattern = '\\|(' + rolePattern + '|\\*)';
-
-
-            const pattern = new RegExp(rolePattern, 'ig');
-
-            return allUserPermission.match(pattern) ? true : false;
-
-        }
-        function allow(onePermissionToCheck){
-            return checkIfPermissionMatch(onePermissionToCheck,allow_permission);
-
-        }
-        function deny(onePermissionToCheck){
-            return checkIfPermissionMatch(onePermissionToCheck,deny_permission);
-
-        }
-
-        function can(permission){
-
-            // return (($this->deny($permission))? false:true);
-            return(allow(permission))? ((deny(permission))? false:true):false;
-        }
-
-
-        var authorization = (to, from, next) => {
-
-// if(typeof to.name == 'undefined'){to.name=to.path.replace('/','.');}
-
-            if(can(to.name)){
-                next();
-            }
-
-        }
     </script>
 
 
+
+    <script>
+        function notification(vieReference,data){
+
+            if (typeof data === 'string'){
+                data={
+                    'title':'notification',
+                    'text':data,
+                    'link':'#',
+
+
+                };
+            }
+
+            vieReference.$notify({
+                group: 'main_notification',
+                title: data.title,
+                duration:6000,
+                text: data.text,
+                link:data.link,
+            });
+        }
+    </script>
+
     {!! Html::script('/assets/admin/plugins/bower_components/jquery/dist/jquery.min.js') !!}
+
     <!-- Bootstrap Core JavaScript -->
     {!! Html::script('/assets/admin/bootstrap/dist/js/bootstrap.min.js') !!}
 
@@ -202,7 +210,7 @@
 
         })
             .find('input').change(function(){
-            console.log(this.value);
+
         });
 
 
@@ -286,81 +294,16 @@
         });
     </script>
 
-    <script src="{{ asset('/assets/admin/ckeditor/ckeditor.js') }}"></script>
-    <script>
-        //CKEDITOR.replace( textarea );
-        if($('#editor1').length){
-            CKEDITOR.replace('editor1', {
-                filebrowserBrowseUrl: "  route('common.files.browser') }}",
-                filebrowserUploadUrl: " route('common.files.upload' ).'?_token='. csrf_token() }}"
-            });
-        }
-
-        if($('#editor2').length) {
-            CKEDITOR.replace('editor2', {
-                filebrowserBrowseUrl: "  route('common.files.browser') }}",
-                filebrowserUploadUrl: " route('common.files.upload' ).'?_token='. csrf_token() }}"
-            });
-        }
-
-        if($('#editor3').length) {
-            CKEDITOR.replace('editor3', {
-                filebrowserBrowseUrl: "  route('common.files.browser') }}",
-                filebrowserUploadUrl: " route('common.files.upload' ).'?_token='. csrf_token() }}"
-            });
-        }
-    </script>
-    <script>
-        function openUploadWindow(targetInput){
-
-            window.open("route('common.files.fileInputPopup') }}?fileInputSelector="+targetInput, "Upload File", "width=1000,height=700");
-        }
-
-        $('.uploadFile').click(function(){
-            openUploadWindow($(this).attr('name'));
-        });
-    </script>
-
-    <script>
-        /*
-         $('.side-mini-panel').mouseout(function(){
-         $('body').attr('class','fix-sidebar content-wrprojecter content-wrapper rmv-right-panel');
-         $('.side-mini-panel .selected').removeClass('selected');
-         $('#togglebtn').hide();
-         });
-         */
-
-    </script>
-
-    <script src="{{ asset('js/echo.js') }}"></script>
-
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-
-    <script>
-        Pusher.logToConsole = true;
-
-        window.Echo = new Echo({
-            broadcaster: 'pusher',
-            key: '14ecf6b9699bbc09a4f2',
-            cluster: 'ap2',
-            encrypted: true,
-            logToConsole: true
-        });
-
-        Echo.private('App.User.{{\Auth::user()->id}}')
-            .listen('.App\\module\\car\\event\\Create', (e) => {
-            console.log(e.model.email);
-
-        });
 
 
-        Echo.private('admin.channel')
-            .listen('.App\\module\\car\\event\\Create', (e) => {
 
-        });
-    </script>
+
 
     <script src="/js/app.js"></script>
+    <script>
+
+        jQuery.fn.load = function(callback){ $(window).on("load", callback) };
+    </script>
 @show
 
 <style type="text/css">

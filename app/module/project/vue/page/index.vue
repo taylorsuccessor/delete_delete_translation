@@ -5,24 +5,7 @@
   <div id="page-wrapper">
     <div class="container-fluid">
 
-    <div class="row bg-title" style="background:url(/assets/admin/plugins/images/heading-title-bg.jpg) no-repeat center center /cover;">
-    <div class="col-lg-12">
-    <h4 class="page-title"><router-link to="/foo">foo link</router-link>title</h4>
-</div>
-<div class="col-sm-6 col-md-6 col-xs-12">
-    <ol class="breadcrumb pull-left">
-<li><a href="#">{{'vueCreate' | translate }} {{'admin.sfds.sdf.ddd' | can}}</a></li>
-<li class="active">title</li>
-</ol>
-</div>
-<div class="col-sm-6 col-md-6 col-xs-12">
-<form role="search" class="app-search hidden-xs pull-right">
-<input type="text" placeholder=" Searche ..." class="form-control">
-<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
-</form>
-</div>
-</div>
-
+        <header-banner :moduleName="'project' | translate" :first="'project' | translate" :second="'project' | translate"></header-banner>
 <div class="row">
     <div class="col-lg-12">
     <div class="white-box">
@@ -31,15 +14,15 @@
 
 
     <div class=" col-xs-9">
-    <h3 class="box-title m-b-0">table header</h3>
-<p class="text-muted m-b-20">Description</p>
+    <h3 class="box-title m-b-0">{{'projectTableHeader' |translate}} </h3>
+<p class="text-muted m-b-20">{{'projectDescription' |translate}}</p>
 
 
 
 </div>
 
     <div class="col-xs-3">
-        <router-link to="/vue/project/create" href="create"class="btn btn-primary form-control">Create</router-link>
+        <router-link to="/vue/project/create" href="create"class="btn btn-primary form-control">{{'create' |translate}}</router-link>
 
 </div>
 
@@ -173,7 +156,7 @@
 <div class="right-side-panel">
     <div class="scrollable-right container">
 
-    <h3 class="title-heading">Search</h3>
+    <h3 class="title-heading">{{'search' |translate}}</h3>
 
 
 
@@ -181,22 +164,25 @@
 
 <div class="form-group">
     <div class="col-md-12">
-        {{search.email}}
-        <input name="email" v-model="search.email" placeholder="email" class="form-control input-sm ">
 
+                <input name="id" v-model="search.id" placeholder="id" class="form-control input-sm ">
+        <input name="user_id" v-model="search.user_id" placeholder="user_id" class="form-control input-sm ">
+        <input name="name" v-model="search.name" placeholder="name" class="form-control input-sm ">
+        <input name="from_language" v-model="search.from_language" placeholder="from_language" class="form-control input-sm ">
+        <input name="to_language" v-model="search.to_language" placeholder="to_language" class="form-control input-sm ">
+        <input name="status" v-model="search.status" placeholder="status" class="form-control input-sm ">
+        <input name="created_at" v-model="search.created_at" placeholder="created_at" class="form-control input-sm ">
+        <input name="updated_at" v-model="search.updated_at" placeholder="updated_at" class="form-control input-sm ">
 </div>
 </div>
 
 <div class="form-group">
     <label class="col-md-12"></label>
     <div class="col-md-12">
-        <button type="submit" name="search" class="btn btn-info btn-sm" v-on:click="getData">Search</button>
+        <button type="submit" name="search" class="btn btn-info btn-sm" v-on:click="getData">{{'search'|translate}}</button>
 </div>
 </div>
 
-{!! Form::hidden('sort', null) !!}
-{!! Form::hidden('order', null) !!}
-{!! Form::close()!!}
 </div>
 </div>
 
@@ -220,21 +206,20 @@
         }
     },
     created(){
-            alert(User.user);
         this.getData();
 
-        Echo.private('App.User.1').listen('.App\\module\\project\\event\\Edit', (e) => {
+        Echo.private('App.User.'+User.user.id).listen('.App\\module\\project\\event\\Edit', (e) => {
             var updatedIndex = this.data.results.findIndex(obj => obj.id == e.oldModel.id);
         this.data.results.splice(updatedIndex, 1, e.newModel);
 
     });
-        Echo.private('App.User.1').listen('.App\\module\\project\\event\\Create', (e) => {
+        Echo.private('App.User.'+User.user.id).listen('.App\\module\\project\\event\\Create', (e) => {
 
             this.data.results.unshift(e.model);
 
     });
 
-        Echo.private('App.User.1').listen('.App\\module\\project\\event\\Delete', (e) => {
+        Echo.private('App.User.'+User.user.id).listen('.App\\module\\project\\event\\Delete', (e) => {
             var deletedModel=JSON.parse(e.model);
         $('#tr_'+deletedModel.id).remove();
 

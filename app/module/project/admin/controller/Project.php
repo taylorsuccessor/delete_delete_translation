@@ -104,7 +104,7 @@ class Project extends Controller
 return redirect('admin/project');
        
 
-        return new JsonResponse(['status'=>'success','data'=>$oResults],200,[],JSON_UNESCAPED_UNICODE);
+        return new JsonResponse(['status'=>'success','model'=>$oResults],200,[],JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -118,7 +118,7 @@ return redirect('admin/project');
     {
 
 
-        $project=$this->rProject->show($id);
+        $model=$this->rProject->show($id);
 
 
         
@@ -128,7 +128,7 @@ return redirect('admin/project');
 
 
     
-        return view('admin.project::show', compact('project','request'));
+        return view('admin.project::show', compact('model','request'));
     }
 
     /**
@@ -164,7 +164,7 @@ return redirect('admin/project');
 
                 return redirect(route('admin.project.index'));
         
-        return new JsonResponse(['status'=>'success'],200,[],JSON_UNESCAPED_UNICODE);
+        return new JsonResponse(['status'=>'success','model'=>$result],200,[],JSON_UNESCAPED_UNICODE);
 
     }
 

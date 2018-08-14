@@ -4,8 +4,8 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 require('./bootstrap');
+
 
 window.Vue = require('vue');
 
@@ -35,8 +35,12 @@ import Notifications from 'vue-notification'
 
 Vue.use(Notifications)
 
+console.log(process.env);
+Vue.component('pagination', require('@resource/layout/partial/pagination'));
+Vue.component('header-banner', require('@resource/layout/partial/headerBanner'));
+Vue.component('app-header', require('@resource/layout/partial/header'));
+Vue.component('main-menu', require('@resource/layout/partial/mainMenu'));
 
-Vue.component('pagination', require('./helper/pagination'));
 
 Vue.filter('translate', function (value) {
 
@@ -68,4 +72,4 @@ function initApp(serverInitData){
 import ApiBase from '@resource/api/ApiBase'
 
 
-new ApiBase().get('/admin/get_setting/',{},initApp) ;
+new ApiBase().get('/admin/vue/get_setting/',{},initApp) ;

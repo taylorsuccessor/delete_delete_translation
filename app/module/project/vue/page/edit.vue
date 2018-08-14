@@ -6,12 +6,12 @@
 
                 <div class="row bg-title" style="background:url(/assets/admin/plugins/images/heading-title-bg.jpg) no-repeat center center /cover;">
                     <div class="col-lg-12">
-                        <h4 class="page-title">Vue</h4>
+                        <h4 class="page-title">{{'project' |translate}}</h4>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
                         <ol class="breadcrumb pull-left">
-                            <li><a href="#">Vue</a></li>
-                            <li class="active">Vue Create</li>
+                            <li><a href="#">{{'project' |translate}}</a></li>
+                            <li class="active">{{'project' |translate}}</li>
                         </ol>
                     </div>
                     <div class="col-sm-6 col-md-6 col-xs-12">
@@ -35,8 +35,8 @@
 
                     <div class="col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0">Vue</h3>
-                            <p class="text-muted m-b-40">Vue</p>
+                            <h3 class="box-title m-b-0">{{'project' |translate}}</h3>
+                            <p class="text-muted m-b-40">{{'project' |translate}}</p>
 
 
                             <ul class="nav nav-tabs" role="tablist">
@@ -170,6 +170,9 @@
 <script>
 
     import service from '@module/project/vue/service/service';
+    import User from '@resource/user/User';
+
+
     export default{
         data(){
             return {
@@ -179,9 +182,9 @@
         },
         created(){
 
-            Echo.private('App.User.1').listen('.App\\module\\project\\event\\Edit', (e) => {
+            Echo.private('App.User.'+User.user.id).listen('.App\\module\\project\\event\\Edit', (e) => {
 
-                this.model=e.newModel;
+                this.data=e.newModel;
 
         });
 
@@ -199,7 +202,7 @@
             postResult(response){
 
                 notification(this,translate('editedSuccessfully'));
-                this.model=response;
+                this.model=response.model;
 
                 this.errors={};
                 this.$router.push({name:'vue.project.index'});
